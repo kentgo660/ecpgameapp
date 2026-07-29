@@ -75,6 +75,11 @@ export default function Dashboard() {
     const completedStages =
         progress?.completedStages || [];
 
+    const gameCompleted =
+        completedStages.includes(
+            "integritycupfinals"
+        );
+
     const rookieComplete =
         completedStages.includes(
             "rookieleague"
@@ -229,10 +234,16 @@ export default function Dashboard() {
                 <button
                     className={styles.startButton}
                     onClick={() =>
-                        router.push("/stages")
+                        gameCompleted
+                            ? router.push("/gamecompleted")
+                            : router.push("/stages")
                     }
                 >
-                    ▶ Continue Adventure
+                    {
+                        gameCompleted
+                            ? "👑 View Achievement"
+                            : "▶ Continue Adventure"
+                    }
                 </button>
 
                 <button

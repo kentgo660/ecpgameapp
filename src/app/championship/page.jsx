@@ -163,7 +163,7 @@ export default function Championship() {
                     <button
                         className={styles.homeButton}
                         onClick={() =>
-                            router.push("/dashboard")
+                            router.push("/gamecompleted")
                         }
                     >
                         Return To Dashboard
