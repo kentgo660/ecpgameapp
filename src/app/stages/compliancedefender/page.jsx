@@ -225,10 +225,10 @@ export default function ComplianceDefender() {
                             styles.continueButton
                         }
                         onClick={() =>
-                            router.push("/stages")
+                            router.push("/stages/dataprotectionarena")
                         }
                     >
-                        Return To Stages
+                        Proceed to Stage 3 
                     </button>
 
                 </div>

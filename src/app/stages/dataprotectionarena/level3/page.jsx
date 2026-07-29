@@ -218,18 +218,16 @@ export default function Level3() {
                             identified successfully.
                         </p>
 
-                        <button
-                            className={
-                                styles.continueButton
-                            }
-                            onClick={() =>
-                                router.push(
-                                    "/stages/dataprotectionarena"
-                                )
-                            }
-                        >
-                            Return To Arena
-                        </button>
+                    <button
+                        className={styles.continueButton}
+                        onClick={() =>
+                            router.push(
+                                "/stages/dataprotectionarena/level4"
+                            )
+                        }
+                    >
+                        Continue To Level 4 →
+                    </button>
 
                     </div>
                 )

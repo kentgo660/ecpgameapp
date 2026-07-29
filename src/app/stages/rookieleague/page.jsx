@@ -23,9 +23,13 @@ export default function RookieLeague() {
                     clearInterval(countdown);
 
                     setGameFinished(true);
+
                     setResultTitle("⏱ Time Expired");
+
                     setResultItems([
-                        "No score awarded."
+                        "No score awarded.",
+                        "Scenario not completed.",
+                        "Challenge failed."
                     ]);
 
                     return 0;
@@ -58,16 +62,18 @@ export default function RookieLeague() {
                 }),
             });
         } catch (error) {
-            console.error("Save Error:", error);
+            console.error(error);
         }
     };
 
     const handleAnswer = async (choice) => {
-        if (gameFinished || saving) return;
+
+        if (saving || gameFinished) return;
 
         setSaving(true);
 
         if (choice === "B") {
+
             let earnedScore = 100;
 
             if (timeLeft >= 20) {
@@ -110,16 +116,19 @@ export default function RookieLeague() {
 
             <div className={styles.container}>
 
-                <div className={styles.stageHeader}>
-                    <span className={styles.stageLabel}>
-                        Stage 1
-                    </span>
+                <div className={styles.header}>
 
-                    <h1>Rookie League</h1>
+                    <h1>🏆 Rookie League</h1>
+
+                    <h2>
+                        Ethical Decision-Making
+                    </h2>
 
                     <p>
-                        Ethical Decision-Making
+                        Choose the most ethical action
+                        before time runs out.
                     </p>
+
                 </div>
 
                 {!gameFinished && (
@@ -130,23 +139,20 @@ export default function RookieLeague() {
 
                         <div className={styles.scenarioCard}>
 
-                            <h2>Scenario</h2>
-
-                            <div className={styles.chatArea}>
+                            <div className={styles.chatBox}>
 
                                 <div className={styles.managerBubble}>
                                     <strong>Manager</strong>
                                     <br />
-                                    Hi Jimin, I sent you an
-                                    request. Please forward it
-                                    to procurement today.
+                                    Hi Jimin, I sent you a request.
+                                    Please forward it to procurement today.
                                 </div>
 
                                 <div className={styles.associateBubble}>
                                     <strong>Associate</strong>
                                     <br />
-                                    Everything is ready except
-                                    the final approval.
+                                    Everything is ready except the
+                                    final approval.
                                 </div>
 
                                 <div className={styles.managerBubble}>
@@ -159,7 +165,7 @@ export default function RookieLeague() {
 
                             </div>
 
-                            <div className={styles.questionBox}>
+                            <div className={styles.question}>
                                 What would you do?
                             </div>
 
@@ -169,7 +175,7 @@ export default function RookieLeague() {
                                     handleAnswer("A")
                                 }
                             >
-                                A. Proceed with the request and
+                                Proceed with the request and
                                 skip approval
                             </button>
 
@@ -179,25 +185,36 @@ export default function RookieLeague() {
                                     handleAnswer("B")
                                 }
                             >
-                                B. Respectfully explain that
+                                Respectfully explain that
                                 approval is required before
                                 proceeding
                             </button>
 
                         </div>
+
                     </>
                 )}
 
                 {gameFinished && (
+
                     <div className={styles.resultCard}>
 
-                        <h2>{resultTitle}</h2>
+                        <div
+                            className={
+                                score > 0
+                                    ? styles.success
+                                    : styles.failure
+                            }
+                        >
+                            {resultTitle}
+                        </div>
 
-                        <div className={styles.scoreCard}>
-                            Score: {score}
+                        <div className={styles.score}>
+                            ⭐ Score: {score}
                         </div>
 
                         <ul className={styles.resultList}>
+
                             {resultItems.map(
                                 (item, index) => (
                                     <li key={index}>
@@ -205,18 +222,20 @@ export default function RookieLeague() {
                                     </li>
                                 )
                             )}
+
                         </ul>
 
                         <button
-                            className={styles.backButton}
+                            className={styles.continueButton}
                             onClick={() =>
-                                router.push("/stages")
+                                router.push("/stages/compliancedefender")
                             }
                         >
-                            Return to Stages
+                            Proceed to Stage 2
                         </button>
 
                     </div>
+
                 )}
 
             </div>

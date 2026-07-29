@@ -84,12 +84,10 @@ export default function Level4() {
                     <button
                         className={styles.continueButton}
                         onClick={() =>
-                            router.push(
-                                "/stages/dataprotectionarena"
-                            )
+                            router.push("/championship")
                         }
                     >
-                        Return To Arena
+                        🏆 Proceed To Championship
                     </button>
 
                 </div>

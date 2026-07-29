@@ -142,11 +142,11 @@ export default function Level2() {
                         className={styles.continueButton}
                         onClick={() =>
                             router.push(
-                                "/stages/dataprotectionarena"
+                                "/stages/dataprotectionarena/level3"
                             )
                         }
                     >
-                        Back To Arena
+                        Continue To Level 3 →
                     </button>
 
                 </div>
