@@ -1,65 +1,158 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import styles from "../styles/login.module.css";
 
 export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+
+    const router = useRouter();
+
+    const [domainId, setDomainId] = useState("");
+    const [loading, setLoading] = useState(false);
+
+    const handleLogin = async () => {
+
+        if (!domainId.trim()) {
+            alert("Please enter your US Domain.");
+            return;
+        }
+
+        try {
+
+            setLoading(true);
+
+            const response = await fetch(
+                "/api/auth/login",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type":
+                            "application/json",
+                    },
+                    body: JSON.stringify({
+                        domainId:
+                            domainId.trim()
+                    }),
+                }
+            );
+
+            const data =
+                await response.json();
+
+            if (!data.success) {
+                alert(data.message);
+                return;
+            }
+
+            sessionStorage.setItem(
+                "user",
+                JSON.stringify(data.user)
+            );
+
+            sessionStorage.removeItem(
+                "ecpDisclaimerAccepted"
+            );
+
+            router.push("/disclaimer");
+
+        } catch (error) {
+
+            console.error(error);
+
+            alert(
+                "Unable to login. Please try again."
+            );
+
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    return (
+        <div className={styles.page}>
+
+            <div className={styles.card}>
+
+                <div className={styles.logoSection}>
+
+                    <div className={styles.logo}>
+                        🏆
+                    </div>
+
+                    <div className={styles.badge}>
+                        ECP WEEK 2026
+                    </div>
+
+                    <h1 className={styles.title}>
+                        Integrity Quest
+                    </h1>
+
+                    <p className={styles.subtitle}>
+                        Embark on a journey through Ethics,
+                        Compliance, Privacy, Accountability,
+                        and Integrity.
+                    </p>
+
+                </div>
+
+                <div className={styles.formGroup}>
+
+                    <label
+                        className={styles.label}
+                    >
+                        US Domain
+                    </label>
+
+                    <input
+                        type="text"
+                        placeholder="AM12345"
+                        value={domainId}
+                        className={styles.input}
+                        onChange={(e) =>
+                            setDomainId(
+                                e.target.value.toUpperCase()
+                            )
+                        }
+                        onKeyDown={(e) => {
+                            if (
+                                e.key === "Enter" &&
+                                !loading
+                            ) {
+                                handleLogin();
+                            }
+                        }}
+                    />
+
+                </div>
+
+                <button
+                    className={styles.button}
+                    onClick={handleLogin}
+                    disabled={loading}
+                >
+                    {
+                        loading
+                            ? "Checking In..."
+                            : "🎮 Login & Check-In"
+                    }
+                </button>
+
+                <div className={styles.footer}>
+
+                    <p>
+                        Enter your US Domain to
+                        participate in Integrity Quest.
+                    </p>
+
+                    <div className={styles.version}>
+                        ECP Week 2026 • Version 1.0
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+    );
 }

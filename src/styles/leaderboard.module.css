@@ -1,0 +1,95 @@
+.page {
+    min-height: 100vh;
+
+    padding: 25px;
+
+    background: linear-gradient(
+        180deg,
+        #020617,
+        #071d3d,
+        #020617
+    );
+
+    color: white;
+}
+
+.header {
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 42px;
+}
+
+.header p {
+    color: #cbd5e1;
+}
+
+.board {
+    max-width: 900px;
+    margin: auto;
+}
+
+.playerCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: linear-gradient(
+        135deg,
+        #1e293b,
+        #111827
+    );
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid #334155;
+}
+
+.rank {
+    font-size: 32px;
+    width: 60px;
+}
+
+.playerInfo {
+    flex: 1;
+}
+
+.playerInfo h3 {
+    margin: 0;
+}
+
+.playerInfo span {
+    color: #94a3b8;
+}
+
+.score {
+    color: #22c55e;
+
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.backButton {
+    display: block;
+
+    margin: 30px auto;
+
+    padding: 15px 30px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    background: #2563eb;
+
+    color: white;
+
+    cursor: pointer;
+}

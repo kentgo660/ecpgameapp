@@ -1,0 +1,372 @@
+.page {
+    min-height: 100vh;
+    padding: 20px;
+
+    background: linear-gradient(
+        180deg,
+        #020617,
+        #071d3d,
+        #020617
+    );
+
+    color: white;
+}
+
+/* HEADER */
+
+.header {
+    max-width: 900px;
+    margin: auto;
+
+    text-align: center;
+}
+
+.gameBadge {
+    display: inline-block;
+
+    padding: 8px 20px;
+
+    border-radius: 999px;
+
+    background: linear-gradient(
+        135deg,
+        #f59e0b,
+        #facc15
+    );
+
+    color: black;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    margin-bottom: 15px;
+}
+
+.header h1 {
+    margin-bottom: 10px;
+    font-size: 40px;
+}
+
+.header p {
+    color: #cbd5e1;
+}
+
+/* PROGRESS */
+
+.progressBar {
+    margin-top: 20px;
+
+    width: 100%;
+    height: 12px;
+
+    background: #1e293b;
+
+    border-radius: 999px;
+
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #22c55e,
+        #16a34a
+    );
+
+    box-shadow:
+        0 0 20px rgba(34, 197, 94, .7);
+}
+
+.progressText {
+    margin-top: 10px;
+    color: #94a3b8;
+}
+
+/* TRUST METER */
+
+.meterCard {
+    max-width: 900px;
+
+    margin: 25px auto;
+
+    background: linear-gradient(
+        135deg,
+        #1e293b,
+        #111827
+    );
+
+    border-radius: 24px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    border: 1px solid #334155;
+}
+
+.meterCard h3 {
+    margin-bottom: 10px;
+}
+
+.trustValue {
+    font-size: 48px;
+    font-weight: 800;
+
+    color: #22c55e;
+}
+
+/* QUESTION */
+
+.questionCard {
+    max-width: 900px;
+
+    margin: auto;
+
+    background: linear-gradient(
+        135deg,
+        #1e293b,
+        #0f172a
+    );
+
+    border-radius: 24px;
+
+    padding: 40px;
+
+    text-align: center;
+
+    border: 1px solid #334155;
+}
+
+.questionLabel {
+    color: #60a5fa;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 20px;
+}
+
+.questionCard h2 {
+    font-size: 30px;
+    line-height: 1.5;
+
+    color: white;
+}
+
+/* OPTIONS */
+
+.optionContainer {
+    max-width: 900px;
+
+    margin: 25px auto;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.optionButton {
+    width: 100%;
+
+    padding: 20px;
+
+    border: none;
+
+    border-radius: 20px;
+
+    background: linear-gradient(
+        135deg,
+        #1e293b,
+        #111827
+    );
+
+    color: white;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all .25s ease;
+
+    border: 1px solid #334155;
+}
+
+.optionButton:hover {
+    transform: translateY(-3px);
+
+    border-color: #60a5fa;
+
+    box-shadow:
+        0 10px 25px rgba(96,165,250,.25);
+}
+
+/* CORRECT */
+
+.correctAnswer {
+    background: linear-gradient(
+        135deg,
+        #16a34a,
+        #15803d
+    ) !important;
+
+    border: 1px solid #22c55e !important;
+
+    color: white;
+
+    box-shadow:
+        0 0 25px rgba(34,197,94,.7);
+}
+
+/* WRONG */
+
+.wrongAnswer {
+    background: linear-gradient(
+        135deg,
+        #dc2626,
+        #b91c1c
+    ) !important;
+
+    border: 1px solid #ef4444 !important;
+
+    color: white;
+
+    box-shadow:
+        0 0 25px rgba(239,68,68,.7);
+}
+
+/* COMPLETION */
+
+.resultCard {
+    max-width: 700px;
+
+    margin: 80px auto;
+
+    background: linear-gradient(
+        135deg,
+        #1e293b,
+        #111827
+    );
+
+    border-radius: 30px;
+
+    padding: 50px;
+
+    text-align: center;
+
+    border: 2px solid #22c55e;
+
+    box-shadow:
+        0 0 30px rgba(34,197,94,.35);
+}
+
+.badge {
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+
+.resultCard h1 {
+    margin-bottom: 15px;
+}
+
+.resultCard h3 {
+    color: #22c55e;
+}
+
+.resultCard p {
+    margin-top: 15px;
+    color: #cbd5e1;
+}
+
+/* SCORE */
+
+.scoreCircle {
+    width: 160px;
+    height: 160px;
+
+    margin: 25px auto;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        #22c55e,
+        #15803d
+    );
+
+    font-size: 52px;
+    font-weight: 800;
+
+    color: white;
+
+    box-shadow:
+        0 0 30px rgba(34,197,94,.7);
+}
+
+/* BUTTON */
+
+.continueButton {
+    margin-top: 25px;
+
+    border: none;
+
+    padding: 16px 30px;
+
+    border-radius: 16px;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8
+    );
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.continueButton:hover {
+    transform: scale(1.03);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+    .questionCard {
+        padding: 25px;
+    }
+
+    .questionCard h2 {
+        font-size: 22px;
+    }
+
+    .optionButton {
+        font-size: 16px;
+    }
+
+    .scoreCircle {
+        width: 120px;
+        height: 120px;
+
+        font-size: 42px;
+    }
+}

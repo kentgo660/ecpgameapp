@@ -1,0 +1,294 @@
+.page {
+    min-height: 100vh;
+    background: linear-gradient(
+        180deg,
+        #0f172a,
+        #111827
+    );
+
+    color: white;
+    padding: 20px;
+}
+
+/* HEADER */
+
+.header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.stageBadge {
+    display: inline-block;
+
+    padding: 8px 18px;
+
+    border-radius: 999px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    margin-bottom: 15px;
+}
+
+.header h1 {
+    margin-bottom: 10px;
+    color: white;
+    font-size: 32px;
+}
+
+.header p {
+    color: #cbd5e1;
+}
+
+/* SCORE */
+
+.scorePanel {
+    max-width: 1200px;
+
+    margin: 0 auto 20px;
+
+    background: #1e293b;
+
+    border-radius: 16px;
+
+    padding: 15px;
+
+    text-align: center;
+
+    font-size: 18px;
+
+    border: 2px solid #2563eb;
+}
+
+.scorePanel strong {
+    color: #22c55e;
+}
+
+/* IMAGE */
+
+.imageWrapper {
+    position: relative;
+
+    width: 100%;
+    max-width: 1365px;
+
+    margin: 0 auto;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 0 20px rgba(59,130,246,.35);
+}
+
+.sceneImage {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* HOTSPOTS */
+
+.hotspot {
+    position: absolute;
+    cursor: pointer;
+    z-index: 999;
+
+    background: transparent;
+    border: none;
+}
+
+.hotspot:hover {
+    background: rgba(255,255,0,.45);
+    transform: scale(1.05);
+}
+
+.hotspotFound {
+    background: rgba(34,197,94,.5);
+    border: 3px solid #22c55e;
+}
+
+/* GIFT BOX */
+
+.risk1 {
+    top: 22%;
+    left: 10%;
+
+    width: 12%;
+    height: 15%;
+}
+
+/* HANDSHAKE */
+
+.risk2 {
+    top: 20%;
+    left: 44%;
+
+    width: 14%;
+    height: 14%;
+}
+
+/* RECEIPT */
+
+.risk3 {
+    top: 45%;
+    left: 33%;
+
+    width: 11%;
+    height: 18%;
+}
+
+/* PENDING APPROVAL */
+
+.risk4 {
+    top: 72%;
+    left: 65%;
+
+    width: 12%;
+    height: 11%;
+}
+
+/* CONFIDENTIAL FILE */
+
+.risk5 {
+    top: 73%;
+    left: 81%;
+
+    width: 18%;
+    height: 18%;
+}
+
+/* RISKS FOUND */
+
+.foundPanel {
+    max-width: 1200px;
+
+    margin: 25px auto 0;
+
+    background: #1e293b;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    border: 2px solid #334155;
+}
+
+.foundPanel h3 {
+    margin-bottom: 15px;
+    color: white;
+}
+
+.foundPanel ul {
+    padding-left: 20px;
+}
+
+.foundPanel li {
+    margin-bottom: 10px;
+    color: #22c55e;
+    font-weight: 600;
+}
+
+/* RESULT */
+
+.resultCard {
+    max-width: 700px;
+
+    margin: 30px auto;
+
+    background: #1e293b;
+
+    border-radius: 25px;
+
+    text-align: center;
+
+    padding: 35px;
+
+    border: 2px solid #22c55e;
+
+    box-shadow:
+        0 0 25px rgba(34,197,94,.3);
+}
+
+.resultCard h2 {
+    color: white;
+}
+
+.resultCard h3 {
+    color: #22c55e;
+}
+
+.resultCard p {
+    color: #cbd5e1;
+}
+
+.scoreCircle {
+    width: 140px;
+    height: 140px;
+
+    margin: 20px auto;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        #3b82f6,
+        #2563eb
+    );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    font-size: 48px;
+    font-weight: bold;
+
+    box-shadow:
+        0 0 25px rgba(59,130,246,.5);
+}
+
+.continueButton {
+    margin-top: 20px;
+
+    padding: 15px 30px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #22c55e;
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.continueButton:hover {
+    background: #16a34a;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+    .scorePanel {
+        font-size: 16px;
+    }
+
+    .foundPanel {
+        padding: 15px;
+    }
+}

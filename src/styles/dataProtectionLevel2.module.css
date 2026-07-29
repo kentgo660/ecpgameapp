@@ -1,0 +1,140 @@
+.page {
+    min-height: 100vh;
+    background: linear-gradient(
+        180deg,
+        #031329,
+        #071d3d
+    );
+    padding: 20px;
+    color: white;
+}
+
+.topCard {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+.levelBadge {
+    display: inline-block;
+    background: #facc15;
+    color: black;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.progressBar {
+    margin-top: 20px;
+    height: 14px;
+    background: #1e293b;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    background: #22c55e;
+}
+
+.counter {
+    margin-top: 10px;
+    color: #cbd5e1;
+}
+
+.questionCard {
+    max-width: 800px;
+    margin: 30px auto;
+    background: #1e293b;
+    border-radius: 24px;
+    padding: 40px;
+    text-align: center;
+}
+
+.question {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.options {
+    max-width: 800px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.optionButton {
+    border: none;
+    border-radius: 18px;
+
+    padding: 22px;
+
+    background: #1e293b;
+    color: white;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.optionButton:hover {
+    background: #334155;
+}
+
+.correct {
+    background: #16a34a !important;
+}
+
+.wrong {
+    background: #dc2626 !important;
+}
+
+.scoreBoard {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #facc15;
+}
+
+.resultCard {
+    max-width: 600px;
+    margin: 80px auto;
+    text-align: center;
+    padding: 40px;
+    background: #1e293b;
+    border-radius: 25px;
+}
+
+.icon {
+    font-size: 70px;
+}
+
+.scoreCircle {
+    width: 140px;
+    height: 140px;
+    margin: 20px auto;
+    border-radius: 50%;
+    background: #22c55e;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.continueButton {
+    margin-top: 20px;
+    border: none;
+    border-radius: 15px;
+    padding: 16px 28px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+}

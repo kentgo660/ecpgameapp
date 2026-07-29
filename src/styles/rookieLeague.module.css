@@ -1,0 +1,130 @@
+.page {
+    min-height: 100vh;
+    background: #f4f6fb;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    color: #2563eb;
+    margin: 0;
+}
+
+.header h2 {
+    color: #111827;
+    margin-top: 10px;
+}
+
+.timerCard {
+    background: #111827;
+    color: white;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.scenarioCard {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,.08);
+}
+
+.chatBox {
+    margin-top: 20px;
+}
+
+.managerBubble {
+    background: #dbeafe;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    color: black;
+}
+
+.associateBubble {
+    background: #e5e7eb;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    color: black;
+}
+
+.question {
+    margin-top: 25px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+.optionButton {
+    width: 100%;
+    border: none;
+    background: #2563eb;
+    color: white;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.optionButton:hover {
+    background: #1d4ed8;
+}
+
+.resultCard {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.success {
+    color: green;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.failure {
+    color: red;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.score {
+    font-size: 24px;
+    margin-top: 20px;
+    color: black;
+}
+
+.resultList {
+    margin-top: 20px;
+    text-align: left;
+    color: black;
+}
+
+.resultList li {
+    margin-bottom: 10px;
+}
+
+.continueButton {
+    margin-top: 25px;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 12px;
+    background: #111827;
+    color: white;
+    cursor: pointer;
+}

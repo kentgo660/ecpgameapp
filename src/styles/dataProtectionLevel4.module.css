@@ -1,0 +1,152 @@
+.page {
+    min-height: 100vh;
+    padding: 20px;
+
+    background: linear-gradient(
+        180deg,
+        #031329,
+        #071d3d
+    );
+
+    color: white;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.levelBadge {
+    display: inline-block;
+
+    background: #facc15;
+    color: black;
+
+    padding: 8px 20px;
+
+    border-radius: 50px;
+
+    font-weight: 700;
+
+    margin-bottom: 15px;
+}
+
+.scenarioCard {
+    max-width: 850px;
+
+    margin: auto;
+
+    background: #1e293b;
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    margin-bottom: 25px;
+}
+
+.scenarioTitle {
+    color: #60a5fa;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.options {
+    max-width: 850px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.optionButton {
+    padding: 18px;
+
+    border: none;
+    border-radius: 16px;
+
+    background: #1e293b;
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+.optionButton:hover {
+    background: #334155;
+}
+
+.correctButton {
+    padding: 18px;
+
+    border: none;
+    border-radius: 16px;
+
+    background: #16a34a;
+
+    color: white;
+    font-weight: 700;
+}
+
+.wrongButton {
+    padding: 18px;
+
+    border: none;
+    border-radius: 16px;
+
+    background: #dc2626;
+
+    color: white;
+}
+
+.feedbackCard {
+    max-width: 850px;
+
+    margin: 25px auto;
+
+    background: #1e293b;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    text-align: center;
+}
+
+.resultCard {
+    max-width: 650px;
+
+    margin: 80px auto;
+
+    background: #1e293b;
+
+    border-radius: 25px;
+
+    padding: 40px;
+
+    text-align: center;
+}
+
+.trophy {
+    font-size: 72px;
+}
+
+.continueButton {
+    margin-top: 20px;
+
+    border: none;
+
+    padding: 16px 30px;
+
+    border-radius: 15px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}

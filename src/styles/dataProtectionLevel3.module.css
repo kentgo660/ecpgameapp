@@ -1,0 +1,126 @@
+.page {
+    min-height: 100vh;
+    background: linear-gradient(
+        180deg,
+        #031329,
+        #071d3d
+    );
+
+    padding: 20px;
+    color: white;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.levelBadge {
+    display: inline-block;
+
+    background: #facc15;
+    color: black;
+
+    padding: 8px 20px;
+
+    border-radius: 50px;
+
+    font-weight: 700;
+}
+
+.progressCard {
+    max-width: 900px;
+    margin: 20px auto;
+
+    background: #1e293b;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    text-align: center;
+}
+
+.emailCard {
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 25px;
+
+    background: white;
+
+    color: black;
+
+    border-radius: 20px;
+}
+
+.emailBody {
+    margin-top: 20px;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.found {
+    cursor: pointer;
+
+    background: rgba(34,197,94,.25);
+
+    border: 2px solid #22c55e;
+
+    border-radius: 10px;
+
+    padding: 5px;
+}
+
+.foundPanel {
+    max-width: 900px;
+
+    margin: 20px auto;
+
+    background: #1e293b;
+
+    padding: 20px;
+
+    border-radius: 20px;
+}
+
+.foundPanel li {
+    margin-bottom: 8px;
+}
+
+.resultCard {
+    max-width: 600px;
+
+    margin: 25px auto;
+
+    text-align: center;
+
+    background: #1e293b;
+
+    padding: 30px;
+
+    border-radius: 20px;
+}
+
+.icon {
+    font-size: 60px;
+}
+
+.continueButton {
+    margin-top: 20px;
+
+    padding: 15px 25px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #2563eb;
+
+    color: white;
+
+    cursor: pointer;
+}
