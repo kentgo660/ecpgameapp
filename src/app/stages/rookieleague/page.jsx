@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import styles from "../../../styles/rookieLeague.module.css";
 
 export default function RookieLeague() {
+
     const router = useRouter();
 
     const [timeLeft, setTimeLeft] = useState(30);
@@ -13,18 +14,27 @@ export default function RookieLeague() {
     const [resultTitle, setResultTitle] = useState("");
     const [resultItems, setResultItems] = useState([]);
     const [saving, setSaving] = useState(false);
+    const [videoWatched, setVideoWatched] =
+        useState(false);
 
     useEffect(() => {
+
         if (gameFinished) return;
+        if (!videoWatched) return;
 
         const countdown = setInterval(() => {
+
             setTimeLeft((prev) => {
+
                 if (prev <= 1) {
+
                     clearInterval(countdown);
 
                     setGameFinished(true);
 
-                    setResultTitle("⏱ Time Expired");
+                    setResultTitle(
+                        "⏱ Time Expired"
+                    );
 
                     setResultItems([
                         "No score awarded.",
@@ -36,39 +46,61 @@ export default function RookieLeague() {
                 }
 
                 return prev - 1;
+
             });
+
         }, 1000);
 
         return () => clearInterval(countdown);
-    }, [gameFinished]);
+
+    }, [gameFinished, videoWatched]);
 
     const saveProgress = async (earnedScore) => {
+
         try {
+
             const user = JSON.parse(
                 sessionStorage.getItem("user")
             );
 
             if (!user) return;
 
-            await fetch("/api/saveprogress", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    domainId: user.domainId,
-                    stageName: "rookieleague",
-                    score: earnedScore,
-                }),
-            });
+            await fetch(
+                "/api/saveprogress",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type":
+                            "application/json",
+                    },
+                    body: JSON.stringify({
+                        domainId:
+                            user.domainId,
+                        stageName:
+                            "rookieleague",
+                        score:
+                            earnedScore,
+                    }),
+                }
+            );
+
         } catch (error) {
+
             console.error(error);
+
         }
+
     };
 
     const handleAnswer = async (choice) => {
 
-        if (saving || gameFinished) return;
+        if (
+            saving ||
+            gameFinished ||
+            !videoWatched
+        ) {
+            return;
+        }
 
         setSaving(true);
 
@@ -82,33 +114,41 @@ export default function RookieLeague() {
 
             setScore(earnedScore);
 
-            setResultTitle("✅ Correct Decision");
+            setResultTitle(
+                "✅ Correct Decision"
+            );
 
             setResultItems([
                 "Control maintained",
                 "Risk reduced",
                 "Accountability demonstrated",
-                "Trust strengthened",
+                "Trust strengthened"
             ]);
 
-            await saveProgress(earnedScore);
+            await saveProgress(
+                earnedScore
+            );
 
         } else {
 
             setScore(0);
 
-            setResultTitle("❌ Wrong Decision");
+            setResultTitle(
+                "❌ Wrong Decision"
+            );
 
             setResultItems([
                 "Required control bypassed",
                 "Increased business risk",
                 "Documentation gap",
-                "Potential audit finding",
+                "Potential audit finding"
             ]);
+
         }
 
         setGameFinished(true);
         setSaving(false);
+
     };
 
     return (
@@ -118,81 +158,137 @@ export default function RookieLeague() {
 
                 <div className={styles.header}>
 
-                    <h1>🏆 Rookie League</h1>
+                    <h1>
+                        🏆 Rookie League
+                    </h1>
 
                     <h2>
                         Ethical Decision-Making
                     </h2>
 
                     <p>
-                        Choose the most ethical action
-                        before time runs out.
+                        Watch the scenario video,
+                        then make your decision.
                     </p>
 
                 </div>
 
                 {!gameFinished && (
+
                     <>
-                        <div className={styles.timerCard}>
-                            ⏱ {timeLeft}s Remaining
-                        </div>
 
                         <div className={styles.scenarioCard}>
 
-                            <div className={styles.chatBox}>
+                            <div className={styles.videoWrapper}>
 
-                                <div className={styles.managerBubble}>
-                                    <strong>Manager</strong>
-                                    <br />
-                                    Hi Jimin, I sent you a request.
-                                    Please forward it to procurement today.
-                                </div>
-
-                                <div className={styles.associateBubble}>
-                                    <strong>Associate</strong>
-                                    <br />
-                                    Everything is ready except the
-                                    final approval.
-                                </div>
-
-                                <div className={styles.managerBubble}>
-                                    <strong>Manager</strong>
-                                    <br />
-                                    We don't have time.
-                                    Submit it now and we'll
-                                    obtain approval later.
-                                </div>
+                                <iframe
+                                    className={styles.video}
+                                    src="https://www.youtube.com/embed/VV1i5LkYiUk?autoplay=1&mute=0&rel=0"
+                                    title="Rookie League Scenario"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                />
 
                             </div>
 
-                            <div className={styles.question}>
-                                What would you do?
+                            <div className={styles.watchSection}>
+
+                                <label className={styles.watchLabel}>
+
+                                    <input
+                                        type="checkbox"
+                                        checked={videoWatched}
+                                        onChange={(e) =>
+                                            setVideoWatched(
+                                                e.target.checked
+                                            )
+                                        }
+                                    />
+
+                                    I have watched the
+                                    scenario video.
+
+                                </label>
+
                             </div>
 
-                            <button
-                                className={styles.optionButton}
-                                onClick={() =>
-                                    handleAnswer("A")
-                                }
-                            >
-                                Proceed with the request and
-                                skip approval
-                            </button>
+                            {!videoWatched && (
 
-                            <button
-                                className={styles.optionButton}
-                                onClick={() =>
-                                    handleAnswer("B")
-                                }
-                            >
-                                Respectfully explain that
-                                approval is required before
-                                proceeding
-                            </button>
+                                <div className={styles.videoMessage}>
+                                    🎥 Watch the video and
+                                    confirm before continuing.
+                                </div>
+
+                            )}
+
+                            {videoWatched && (
+
+                                <>
+
+                                    <div className={styles.timerCard}>
+                                        ⏱ {timeLeft}s Remaining
+                                    </div>
+
+                                    <div className={styles.chatBox}>
+
+                                        <div className={styles.managerBubble}>
+                                            <strong>Manager</strong>
+                                            <br />
+                                            Hi Jimin, I sent you a
+                                            request. Please forward it
+                                            to procurement today.
+                                        </div>
+
+                                        <div className={styles.associateBubble}>
+                                            <strong>Associate</strong>
+                                            <br />
+                                            Everything is ready except
+                                            the final approval.
+                                        </div>
+
+                                        <div className={styles.managerBubble}>
+                                            <strong>Manager</strong>
+                                            <br />
+                                            We don't have time.
+                                            Submit it now and we'll
+                                            obtain approval later.
+                                        </div>
+
+                                    </div>
+
+                                    <div className={styles.question}>
+                                        What would you do?
+                                    </div>
+
+                                    <button
+                                        className={styles.optionButton}
+                                        onClick={() =>
+                                            handleAnswer("A")
+                                        }
+                                    >
+                                        Proceed with the request and
+                                        skip approval
+                                    </button>
+
+                                    <button
+                                        className={styles.optionButton}
+                                        onClick={() =>
+                                            handleAnswer("B")
+                                        }
+                                    >
+                                        Respectfully explain that
+                                        approval is required before
+                                        proceeding
+                                    </button>
+
+                                </>
+
+                            )}
 
                         </div>
 
                     </>
+
                 )}
 
                 {gameFinished && (
@@ -228,10 +324,12 @@ export default function RookieLeague() {
                         <button
                             className={styles.continueButton}
                             onClick={() =>
-                                router.push("/stages/compliancedefender")
+                                router.push(
+                                    "/stages/compliancedefender"
+                                )
                             }
                         >
-                            Proceed to Stage 2
+                            Proceed To Stage 2 →
                         </button>
 
                     </div>

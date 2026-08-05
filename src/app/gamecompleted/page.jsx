@@ -131,7 +131,7 @@ export default function GameCompleted() {
                     className={styles.leaderboardButton}
                     onClick={() =>
                         router.push(
-                            "/leaderboard"
+                            "/dashboard"
                         )
                     }
                 >
