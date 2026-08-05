@@ -20,6 +20,16 @@ export default function Dashboard() {
 
         try {
 
+            const disclaimerAccepted =
+                sessionStorage.getItem(
+                    "ecpDisclaimerAccepted"
+                );
+
+            if (!disclaimerAccepted) {
+                router.push("/disclaimer");
+                return;
+            }
+
             const storedUser =
                 sessionStorage.getItem("user");
 
@@ -56,9 +66,13 @@ export default function Dashboard() {
             }
 
         } catch (error) {
+
             console.error(error);
+
         } finally {
+
             setLoading(false);
+
         }
     };
 
@@ -74,11 +88,6 @@ export default function Dashboard() {
 
     const completedStages =
         progress?.completedStages || [];
-
-    const gameCompleted =
-        completedStages.includes(
-            "integritycupfinals"
-        );
 
     const rookieComplete =
         completedStages.includes(
@@ -104,19 +113,48 @@ export default function Dashboard() {
             "dataprotectionarena-level4"
         );
 
-    let completedMainStages = 0;
+    const trustBuilderComplete =
+        completedStages.includes(
+            "trustbuilder"
+        );
+
+    const speakUpArenaComplete =
+        completedStages.includes(
+            "speakuparena"
+        );
+
+    const championshipComplete =
+        completedStages.includes(
+            "integritycupfinals"
+        );
+
+    const gameCompleted =
+        championshipComplete;
+
+    let completedChallenges = 0;
 
     if (rookieComplete)
-        completedMainStages++;
+        completedChallenges++;
 
     if (complianceComplete)
-        completedMainStages++;
+        completedChallenges++;
 
     if (dataProtectionComplete)
-        completedMainStages++;
+        completedChallenges++;
+
+    if (trustBuilderComplete)
+        completedChallenges++;
+
+    if (speakUpArenaComplete)
+        completedChallenges++;
+
+    if (championshipComplete)
+        completedChallenges++;
 
     const progressPercent =
-        (completedMainStages / 3) * 100;
+        Math.round(
+            (completedChallenges / 6) * 100
+        );
 
     const totalScore =
         progress?.totalScore || 0;
@@ -138,6 +176,10 @@ export default function Dashboard() {
                     ECP Week 2026
                 </p>
 
+                <div className={styles.regionBadge}>
+                    🌎 {user.country}
+                </div>
+
             </div>
 
             <div className={styles.welcomeCard}>
@@ -145,18 +187,35 @@ export default function Dashboard() {
                 <h2>
                     Welcome,
                     {" "}
-                    {user.firstName}
+                    {user.fullName}
                 </h2>
 
                 <span>
-                    {user.position}
+                    Ready for today's challenge?
                 </span>
 
             </div>
 
+            {gameCompleted && (
+
+                <div className={styles.championBanner}>
+
+                    👑 CONGRATULATIONS!
+
+                    <br />
+
+                    You have completed
+                    Integrity Quest and earned
+                    the Integrity Cup Champion title.
+
+                </div>
+
+            )}
+
             <div className={styles.statsGrid}>
 
                 <div className={styles.statCard}>
+
                     <div className={styles.statIcon}>
                         ⭐
                     </div>
@@ -165,19 +224,26 @@ export default function Dashboard() {
                         {totalScore}
                     </h3>
 
-                    <p>Total Score</p>
+                    <p>
+                        Total Score
+                    </p>
+
                 </div>
 
                 <div className={styles.statCard}>
+
                     <div className={styles.statIcon}>
                         🎯
                     </div>
 
                     <h3>
-                        {completedMainStages}/3
+                        {completedChallenges}/6
                     </h3>
 
-                    <p>Main Stages</p>
+                    <p>
+                        Challenges Completed
+                    </p>
+
                 </div>
 
             </div>
@@ -189,6 +255,7 @@ export default function Dashboard() {
                 </h3>
 
                 <div className={styles.progressBar}>
+
                     <div
                         className={styles.progressFill}
                         style={{
@@ -196,6 +263,7 @@ export default function Dashboard() {
                                 `${progressPercent}%`
                         }}
                     />
+
                 </div>
 
                 <p>
@@ -207,23 +275,32 @@ export default function Dashboard() {
             <div className={styles.profileCard}>
 
                 <div className={styles.infoRow}>
-                    <span>Domain</span>
+                    <span>
+                        US Domain
+                    </span>
+
                     <strong>
                         {user.domainId}
                     </strong>
                 </div>
 
                 <div className={styles.infoRow}>
-                    <span>Group</span>
+                    <span>
+                        Full Name
+                    </span>
+
                     <strong>
-                        {user.group}
+                        {user.fullName}
                     </strong>
                 </div>
 
                 <div className={styles.infoRow}>
-                    <span>Tower</span>
+                    <span>
+                        Country
+                    </span>
+
                     <strong>
-                        {user.tower}
+                        {user.country}
                     </strong>
                 </div>
 
@@ -235,8 +312,12 @@ export default function Dashboard() {
                     className={styles.startButton}
                     onClick={() =>
                         gameCompleted
-                            ? router.push("/gamecompleted")
-                            : router.push("/stages")
+                            ? router.push(
+                                  "/gamecompleted"
+                              )
+                            : router.push(
+                                  "/stages"
+                              )
                     }
                 >
                     {
@@ -249,7 +330,9 @@ export default function Dashboard() {
                 <button
                     className={styles.menuButton}
                     onClick={() =>
-                        router.push("/leaderboard")
+                        router.push(
+                            "/leaderboard"
+                        )
                     }
                 >
                     🏅 Leaderboard
@@ -258,7 +341,9 @@ export default function Dashboard() {
                 <button
                     className={styles.menuButton}
                     onClick={() =>
-                        router.push("/badges")
+                        router.push(
+                            "/badges"
+                        )
                     }
                 >
                     🎖 My Badges

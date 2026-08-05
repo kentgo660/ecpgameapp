@@ -2,11 +2,10 @@ import { NextResponse } from "next/server";
 
 import { connectDB } from "@/lib/mongodb";
 
-import ECPAssociate from "@/models/ECPAssociate";
+import ECPINDPRAttendance from "@/models/ECPINDPRAttendance";
 import ECPGameProgress from "@/models/ECPGameProgress";
 
 export async function GET() {
-
     try {
 
         await connectDB();
@@ -25,8 +24,8 @@ export async function GET() {
                 progressRecords.map(
                     async (record) => {
 
-                        const associate =
-                            await ECPAssociate
+                        const attendee =
+                            await ECPINDPRAttendance
                                 .findOne({
                                     domainId:
                                         record.domainId
@@ -38,26 +37,20 @@ export async function GET() {
                             domainId:
                                 record.domainId,
 
-                            firstName:
-                                associate?.firstName || "",
+                            fullName:
+                                attendee?.fullName || "",
 
-                            lastName:
-                                associate?.lastName || "",
-
-                            position:
-                                associate?.position || "",
-
-                            group:
-                                associate?.group || "",
-
-                            tower:
-                                associate?.tower || "",
+                            country:
+                                attendee?.country || "",
 
                             totalScore:
                                 record.totalScore || 0,
 
                             completedStages:
-                                record.completedStages || []
+                                record.completedStages || [],
+
+                            currentStage:
+                                record.currentStage || 1
 
                         };
 
@@ -73,7 +66,10 @@ export async function GET() {
 
     } catch (error) {
 
-        console.error(error);
+        console.error(
+            "Leaderboard Error:",
+            error
+        );
 
         return NextResponse.json(
             {
@@ -84,6 +80,6 @@ export async function GET() {
                 status: 500
             }
         );
-    }
 
+    }
 }

@@ -28,14 +28,18 @@ export default function Leaderboard() {
 
             if (data.success) {
                 setLeaders(
-                    data.leaderboard
+                    data.leaderboard || []
                 );
             }
 
         } catch (error) {
+
             console.error(error);
+
         } finally {
+
             setLoading(false);
+
         }
 
     };
@@ -67,53 +71,93 @@ export default function Leaderboard() {
 
             <div className={styles.board}>
 
-                {leaders.map(
-                    (player, index) => {
+                {leaders.length === 0 ? (
 
-                        let rankIcon = "🎖";
+                    <div className={styles.emptyCard}>
+                        No leaderboard data available.
+                    </div>
 
-                        if (index === 0)
-                            rankIcon = "🥇";
+                ) : (
 
-                        if (index === 1)
-                            rankIcon = "🥈";
+                    leaders.map(
+                        (player, index) => {
 
-                        if (index === 2)
-                            rankIcon = "🥉";
+                            const rankIcon =
+                                index === 0
+                                    ? "🥇"
+                                    : index === 1
+                                    ? "🥈"
+                                    : index === 2
+                                    ? "🥉"
+                                    : "🎖";
 
-                        return (
+                            const isChampion =
+                                player.completedStages?.includes(
+                                    "integritycupfinals"
+                                );
 
-                            <div
-                                key={player.domainId}
-                                className={styles.playerCard}
-                            >
+                            return (
 
-                                <div className={styles.rank}>
-                                    {rankIcon}
+                                <div
+                                    key={
+                                        player.domainId ||
+                                        index
+                                    }
+                                    className={styles.playerCard}
+                                >
+
+                                    <div className={styles.rank}>
+
+                                        <div>
+                                            {rankIcon}
+                                        </div>
+
+                                        <small>
+                                            #{index + 1}
+                                        </small>
+
+                                    </div>
+
+                                    <div className={styles.playerInfo}>
+
+                                        <h3>
+                                            {player.fullName ||
+                                                "Unknown Player"}
+                                        </h3>
+
+                                        <span>
+                                            🌎 {player.country || "N/A"}
+                                        </span>
+
+                                        <small>
+                                            {player.domainId}
+                                        </small>
+
+                                    </div>
+
+                                    {isChampion && (
+
+                                        <div
+                                            className={
+                                                styles.championBadge
+                                            }
+                                        >
+                                            👑 Champion
+                                        </div>
+
+                                    )}
+
+                                    <div className={styles.score}>
+                                        ⭐ {player.totalScore || 0}
+                                    </div>
+
                                 </div>
 
-                                <div className={styles.playerInfo}>
+                            );
 
-                                    <h3>
-                                        {player.firstName} {player.lastName}
-                                    </h3>
+                        }
+                    )
 
-                                    <span>
-                                        {player.group}
-                                    </span>
-
-                                </div>
-
-                                <div className={styles.score}>
-
-                                    {player.totalScore}
-
-                                </div>
-
-                            </div>
-
-                        );
-                    }
                 )}
 
             </div>
@@ -121,7 +165,9 @@ export default function Leaderboard() {
             <button
                 className={styles.backButton}
                 onClick={() =>
-                    router.push("/dashboard")
+                    router.push(
+                        "/dashboard"
+                    )
                 }
             >
                 ← Back To Dashboard

@@ -9,12 +9,25 @@ export default function Home() {
     const router = useRouter();
 
     const [domainId, setDomainId] = useState("");
+    const [fullName, setFullName] = useState("");
+    const [country, setCountry] = useState("");
+
     const [loading, setLoading] = useState(false);
 
-    const handleLogin = async () => {
+    const handleRegister = async () => {
 
         if (!domainId.trim()) {
-            alert("Please enter your US Domain.");
+            alert("Please enter US Domain.");
+            return;
+        }
+
+        if (!fullName.trim()) {
+            alert("Please enter Full Name.");
+            return;
+        }
+
+        if (!country) {
+            alert("Please select Country.");
             return;
         }
 
@@ -23,7 +36,7 @@ export default function Home() {
             setLoading(true);
 
             const response = await fetch(
-                "/api/auth/login",
+                "/api/register",
                 {
                     method: "POST",
                     headers: {
@@ -32,7 +45,12 @@ export default function Home() {
                     },
                     body: JSON.stringify({
                         domainId:
-                            domainId.trim()
+                            domainId.trim(),
+
+                        fullName:
+                            fullName.trim(),
+
+                        country
                     }),
                 }
             );
@@ -41,13 +59,20 @@ export default function Home() {
                 await response.json();
 
             if (!data.success) {
-                alert(data.message);
+                alert(
+                    data.message ||
+                    "Registration failed."
+                );
                 return;
             }
 
             sessionStorage.setItem(
                 "user",
-                JSON.stringify(data.user)
+                JSON.stringify({
+                    domainId,
+                    fullName,
+                    country
+                })
             );
 
             sessionStorage.removeItem(
@@ -61,12 +86,15 @@ export default function Home() {
             console.error(error);
 
             alert(
-                "Unable to login. Please try again."
+                "Unable to register."
             );
 
         } finally {
+
             setLoading(false);
+
         }
+
     };
 
     return (
@@ -89,24 +117,22 @@ export default function Home() {
                     </h1>
 
                     <p className={styles.subtitle}>
-                        Embark on a journey through Ethics,
-                        Compliance, Privacy, Accountability,
-                        and Integrity.
+                        Embark on a journey through
+                        Ethics, Compliance, Privacy,
+                        Accountability, and Integrity.
                     </p>
 
                 </div>
 
                 <div className={styles.formGroup}>
 
-                    <label
-                        className={styles.label}
-                    >
+                    <label className={styles.label}>
                         US Domain
                     </label>
 
                     <input
                         type="text"
-                        placeholder="AM12345"
+                        placeholder="AI04068"
                         value={domainId}
                         className={styles.input}
                         onChange={(e) =>
@@ -114,35 +140,78 @@ export default function Home() {
                                 e.target.value.toUpperCase()
                             )
                         }
-                        onKeyDown={(e) => {
-                            if (
-                                e.key === "Enter" &&
-                                !loading
-                            ) {
-                                handleLogin();
-                            }
-                        }}
                     />
+
+                </div>
+
+                <div className={styles.formGroup}>
+
+                    <label className={styles.label}>
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        placeholder="Juan Dela Cruz"
+                        value={fullName}
+                        className={styles.input}
+                        onChange={(e) =>
+                            setFullName(
+                                e.target.value
+                            )
+                        }
+                    />
+
+                </div>
+
+                <div className={styles.formGroup}>
+
+                    <label className={styles.label}>
+                        Country
+                    </label>
+
+                    <select
+                        value={country}
+                        className={styles.input}
+                        onChange={(e) =>
+                            setCountry(
+                                e.target.value
+                            )
+                        }
+                    >
+                        <option value="">
+                            Select Country
+                        </option>
+
+                        <option value="India">
+                            India
+                        </option>
+
+                        <option value="Puerto Rico">
+                            Puerto Rico
+                        </option>
+
+                    </select>
 
                 </div>
 
                 <button
                     className={styles.button}
-                    onClick={handleLogin}
+                    onClick={handleRegister}
                     disabled={loading}
                 >
                     {
                         loading
-                            ? "Checking In..."
-                            : "🎮 Login & Check-In"
+                            ? "Registering..."
+                            : "🎮 Register & Check-In"
                     }
                 </button>
 
                 <div className={styles.footer}>
 
                     <p>
-                        Enter your US Domain to
-                        participate in Integrity Quest.
+                        Complete your registration
+                        to participate in Integrity Quest.
                     </p>
 
                     <div className={styles.version}>
