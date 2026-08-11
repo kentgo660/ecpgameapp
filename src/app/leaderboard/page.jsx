@@ -69,6 +69,18 @@ export default function Leaderboard() {
 
             </div>
 
+            
+            <button
+                className={styles.backButton}
+                onClick={() =>
+                    router.push(
+                        "/dashboard"
+                    )
+                }
+            >
+                ← Back To Dashboard
+            </button>
+
             <div className={styles.board}>
 
                 {leaders.length === 0 ? (
@@ -161,17 +173,6 @@ export default function Leaderboard() {
                 )}
 
             </div>
-
-            <button
-                className={styles.backButton}
-                onClick={() =>
-                    router.push(
-                        "/dashboard"
-                    )
-                }
-            >
-                ← Back To Dashboard
-            </button>
 
         </div>
     );

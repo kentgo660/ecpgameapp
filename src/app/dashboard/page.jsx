@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "../../styles/dashboard.module.css";
+import Image from "next/image";
 
 export default function Dashboard() {
 
@@ -130,6 +131,11 @@ export default function Dashboard() {
 
     const gameCompleted =
         championshipComplete;
+    
+    const bonusUnlocked =
+        rookieComplete &&
+        complianceComplete &&
+        dataProtectionComplete;
 
     let completedChallenges = 0;
 
@@ -142,18 +148,12 @@ export default function Dashboard() {
     if (dataProtectionComplete)
         completedChallenges++;
 
-    if (trustBuilderComplete)
-        completedChallenges++;
-
-    if (speakUpArenaComplete)
-        completedChallenges++;
-
     if (championshipComplete)
         completedChallenges++;
 
     const progressPercent =
         Math.round(
-            (completedChallenges / 6) * 100
+            (completedChallenges / 4) * 100
         );
 
     const totalScore =
@@ -164,22 +164,13 @@ export default function Dashboard() {
 
             <div className={styles.heroCard}>
 
-                <div className={styles.logo}>
-                    🏆
-                </div>
-
-                <h1>
-                    Integrity Quest
-                </h1>
-
-                <p>
-                    ECP Week 2026
-                </p>
-
-                <div className={styles.regionBadge}>
-                    🌎 {user.country}
-                </div>
-
+                <Image
+                src="/images/integrity-quest-logo.png"
+                alt="Integrity Quest"
+                width={250}
+                height={250}
+                className={styles.heroLogo}
+                />
             </div>
 
             <div className={styles.welcomeCard}>
@@ -212,66 +203,7 @@ export default function Dashboard() {
 
             )}
 
-            <div className={styles.statsGrid}>
-
-                <div className={styles.statCard}>
-
-                    <div className={styles.statIcon}>
-                        ⭐
-                    </div>
-
-                    <h3>
-                        {totalScore}
-                    </h3>
-
-                    <p>
-                        Total Score
-                    </p>
-
-                </div>
-
-                <div className={styles.statCard}>
-
-                    <div className={styles.statIcon}>
-                        🎯
-                    </div>
-
-                    <h3>
-                        {completedChallenges}/6
-                    </h3>
-
-                    <p>
-                        Challenges Completed
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div className={styles.progressCard}>
-
-                <h3>
-                    Quest Progress
-                </h3>
-
-                <div className={styles.progressBar}>
-
-                    <div
-                        className={styles.progressFill}
-                        style={{
-                            width:
-                                `${progressPercent}%`
-                        }}
-                    />
-
-                </div>
-
-                <p>
-                    {progressPercent}% Complete
-                </p>
-
-            </div>
-
+            
             <div className={styles.profileCard}>
 
                 <div className={styles.infoRow}>
@@ -306,26 +238,310 @@ export default function Dashboard() {
 
             </div>
 
-            <div className={styles.menuGrid}>
+            <div className={styles.statsGrid}>
 
-                <button
-                    className={styles.startButton}
-                    onClick={() =>
-                        gameCompleted
-                            ? router.push(
-                                  "/gamecompleted"
-                              )
-                            : router.push(
-                                  "/stages"
-                              )
-                    }
-                >
-                    {
-                        gameCompleted
-                            ? "👑 View Achievement"
-                            : "▶ Continue Adventure"
-                    }
-                </button>
+                <div className={styles.statCard}>
+
+                    <div className={styles.statIcon}>
+                        ⭐
+                    </div>
+
+                    <h3>
+                        {totalScore}
+                    </h3>
+
+                    <p>
+                        Total Score
+                    </p>
+
+                </div>
+
+                <div className={styles.statCard}>
+
+                    <div className={styles.statIcon}>
+                        🎯
+                    </div>
+
+                    <h3>
+                        {completedChallenges}/4
+                    </h3>
+
+                    <p>
+                        Challenges Completed
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div className={styles.progressCard}>
+
+                <h3>
+                    Quest Progress
+                </h3>
+
+                <div className={styles.progressBar}>
+
+                    <div
+                        className={styles.progressFill}
+                        style={{
+                            width:
+                                `${progressPercent}%`
+                        }}
+                    />
+
+                </div>
+
+                <p>
+                    {progressPercent}% Complete
+                </p>
+
+            </div>
+
+            <div className={styles.stageTracker}>
+
+                <h3>🎮 Quest Journey</h3>
+
+                <div className={styles.stageList}>
+
+                    <div
+                        className={`${styles.stageItem}
+                        ${
+                            rookieComplete
+                                ? styles.completedStage
+                                : ""
+                        }
+                        ${
+                            gameCompleted
+                                ? styles.lockedStage
+                                : ""
+                        }`}
+                        onClick={() => {
+
+                            if (gameCompleted) return;
+
+                            router.push(
+                                "/stages/rookieleague"
+                            );
+
+                        }}
+                    >
+                        {
+                            rookieComplete
+                                ? "✅"
+                                : "🏅"
+                        }
+
+                        {" "}
+                        Rookie League
+                    </div>
+
+                        <div
+                            className={`${styles.stageItem}
+                            ${
+                                complianceComplete
+                                    ? styles.completedStage
+                                    : ""
+                            }
+                            ${
+                                !rookieComplete ||
+                                gameCompleted
+                                    ? styles.lockedStage
+                                    : ""
+                            }`}
+                            onClick={() => {
+
+                                if (!rookieComplete)
+                                    return;
+
+                                if (gameCompleted)
+                                    return;
+
+                                router.push(
+                                    "/stages/compliancedefender"
+                                );
+
+                            }}
+                        >
+                            {
+                                complianceComplete
+                                    ? "✅"
+                                    : "🛡"
+                            }
+
+                            {" "}
+                            Compliance Defender
+                        </div>
+
+                        <div
+                            className={`${styles.stageItem}
+                            ${
+                                dataProtectionComplete
+                                    ? styles.completedStage
+                                    : ""
+                            }
+                            ${
+                                !complianceComplete ||
+                                gameCompleted
+                                    ? styles.lockedStage
+                                    : ""
+                            }`}
+                            onClick={() => {
+
+                                if (!complianceComplete)
+                                    return;
+
+                                if (gameCompleted)
+                                    return;
+
+                                router.push(
+                                    "/stages/dataprotectionarena"
+                                );
+
+                            }}
+                        >
+                            {
+                                dataProtectionComplete
+                                    ? "✅"
+                                    : !complianceComplete
+                                        ? "🔒"
+                                        : "🔓"
+                            }
+
+                            {" "}
+
+                            Data Protection Arena
+                        </div>
+
+
+
+                        <div
+                            className={`${styles.stageItem}
+                            ${
+                                championshipComplete
+                                    ? styles.completedStage
+                                    : ""
+                            }
+                            ${
+                                !trustBuilderComplete ||
+                                !speakUpArenaComplete ||
+                                gameCompleted
+                                    ? styles.lockedStage
+                                    : ""
+                            }`}
+                            onClick={() => {
+
+                                if (!trustBuilderComplete)
+                                    return;
+
+                                if (!speakUpArenaComplete)
+                                    return;
+
+                                if (gameCompleted)
+                                    return;
+
+                                router.push(
+                                    "/championship"
+                                );
+
+                            }}
+                        >
+                            {
+                                championshipComplete
+                                    ? "✅"
+                                    : !trustBuilderComplete ||
+                                    !speakUpArenaComplete
+                                        ? "🔒"
+                                        : "🏆"
+                            }
+
+                            {" "}
+
+                            Integrity Cup Finals
+                        </div>
+
+                        <div
+                            className={`${styles.stageItem}
+                            ${
+                                trustBuilderComplete
+                                    ? styles.completedStage
+                                    : ""
+                            }
+                            ${
+                                !bonusUnlocked
+                                    ? styles.lockedStage
+                                    : ""
+                            }`}
+                            onClick={() => {
+
+                                if (!bonusUnlocked)
+                                    return;
+
+                                if (trustBuilderComplete)
+                                    return;
+
+                                router.push(
+                                    "/bonus/trustbuilder"
+                                );
+
+                            }}
+                        >
+                            {
+                                trustBuilderComplete
+                                    ? "✅"
+                                    : !bonusUnlocked
+                                        ? "🔒"
+                                        : "🤝"
+                            }
+
+                            {" "}
+                            Trust Builder Challenge
+                        </div>
+
+                        <div
+                            className={`${styles.stageItem}
+                            ${
+                                speakUpArenaComplete
+                                    ? styles.completedStage
+                                    : ""
+                            }
+                            ${
+                                !bonusUnlocked
+                                    ? styles.lockedStage
+                                    : ""
+                            }`}
+                            onClick={() => {
+
+                                if (!bonusUnlocked)
+                                    return;
+
+                                if (speakUpArenaComplete)
+                                    return;
+
+                                router.push(
+                                    "/bonus/speakuparena"
+                                );
+
+                            }}
+                        >
+                            {
+                                speakUpArenaComplete
+                                    ? "✅"
+                                    : !bonusUnlocked
+                                        ? "🔒"
+                                        : "📢"
+                            }
+
+                            {" "}
+
+                            Speak Up Arena
+                        </div>
+
+                </div>
+
+            </div>
+
+            <div className={styles.menuGrid}>
 
                 <button
                     className={styles.menuButton}

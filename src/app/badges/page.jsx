@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "../../styles/badges.module.css";
+import Image from "next/image";
 
 export default function BadgesPage() {
 
@@ -59,30 +60,30 @@ export default function BadgesPage() {
 
     const badges = [
         {
-            icon: "🏅",
-            title: "Ethical Decision Maker",
+            image: "/images/rookie-champion.png",
+            title: "",
             description:
-                "Completed Rookie League",
+                "",
             unlocked:
                 completedStages.includes(
                     "rookieleague"
                 )
         },
         {
-            icon: "🛡",
-            title: "Compliance Shield",
+            image: "/images/compliance-defender.png",
+            title: "",
             description:
-                "Completed Compliance Defender",
+                "",
             unlocked:
                 completedStages.includes(
                     "compliancedefender"
                 )
         },
         {
-            icon: "🔒",
-            title: "Privacy Guardian",
+            image: "/images/privacy-guardian.png",
+            title: "",
             description:
-                "Completed Data Protection Arena",
+                "",
             unlocked:
                 completedStages.includes("dataprotectionarena-level1") &&
                 completedStages.includes("dataprotectionarena-level2") &&
@@ -90,30 +91,30 @@ export default function BadgesPage() {
                 completedStages.includes("dataprotectionarena-level4")
         },
         {
-            icon: "🤝",
-            title: "Trust Champion",
+            image: "/images/trust-champion.png",
+            title: "",
             description:
-                "Completed Trust Builder Challenge",
+                "",
             unlocked:
                 completedStages.includes(
                     "trustbuilder"
                 )
         },
         {
-            icon: "📢",
-            title: "Integrity Champion",
+           image: "/images/integrity-hero.png",
+            title: "",
             description:
-                "Completed Speak Up Arena",
+                "",
             unlocked:
                 completedStages.includes(
                     "speakuparena"
                 )
         },
         {
-            icon: "👑",
-            title: "Integrity Cup Champion",
+            image: "/images/integrity-champion.png",
+            title: "",
             description:
-                "Completed Championship Finals",
+                "",
             unlocked:
                 completedStages.includes(
                     "integritycupfinals"
@@ -133,12 +134,21 @@ export default function BadgesPage() {
         <div className={styles.page}>
 
             <div className={styles.header}>
-                <h1>🎖 My Badges</h1>
+                <h1>My Badges</h1>
                 <p>
                     Unlock badges by completing
                     Integrity Quest challenges.
                 </p>
             </div>
+
+            <button
+                className={styles.backButton}
+                onClick={() =>
+                    router.push("/dashboard")
+                }
+            >
+                ← Back To Dashboard
+            </button>
 
             <div className={styles.badgeGrid}>
 
@@ -156,9 +166,17 @@ export default function BadgesPage() {
 
                             <div className={styles.badgeIcon}>
                                 {
-                                    badge.unlocked
-                                        ? badge.icon
-                                        : "🔒"
+                                    <Image
+                                        src={
+                                            badge.unlocked
+                                                ? badge.image
+                                                : "/images/locked-badge.png"
+                                        }
+                                        alt={badge.title}
+                                        width={120}
+                                        height={120}
+                                        className={styles.badgeImage}
+                                    />
                                 }
                             </div>
 
@@ -184,15 +202,6 @@ export default function BadgesPage() {
                 )}
 
             </div>
-
-            <button
-                className={styles.backButton}
-                onClick={() =>
-                    router.push("/dashboard")
-                }
-            >
-                ← Back To Dashboard
-            </button>
 
         </div>
     );

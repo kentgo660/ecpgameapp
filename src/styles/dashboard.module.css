@@ -24,7 +24,7 @@
 
     background: linear-gradient(
         135deg,
-        #1d4ed8,
+        #ffffff,
         #1e3a8a
     );
 
@@ -323,4 +323,90 @@
     .startButton {
         grid-column: span 1;
     }
+}
+
+.heroLogo {
+    width: 450px;
+    height: auto;
+
+    display: block;
+
+    margin: 0 auto 15px auto;
+
+    object-fit: contain;
+}
+
+.stageTracker {
+    margin-bottom: 20px;
+
+    padding: 25px;
+
+    background: linear-gradient(
+        135deg,
+        #1e293b,
+        #111827
+    );
+
+    border-radius: 25px;
+
+    border: 1px solid #334155;
+}
+
+.stageTracker h3 {
+    margin-bottom: 20px;
+    color: white;
+}
+
+.stageList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.stageItem {
+    padding: 14px 18px;
+
+    border-radius: 14px;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.05
+    );
+
+    color: #94a3b8;
+
+    font-weight: 600;
+
+    border: 1px solid
+        rgba(255,255,255,.08);
+}
+
+.completedStage {
+    background: linear-gradient(
+        135deg,
+        #22c55e,
+        #15803d
+    );
+
+    color: white;
+
+    border-color: #22c55e;
+
+    box-shadow:
+        0 0 15px
+        rgba(34,197,94,.25);
+}
+
+.lockedStage {
+    opacity: .45;
+
+    cursor: not-allowed;
+
+    filter: grayscale(100%);
+}
+
+.lockedStage:hover {
+    transform: none !important;
 }

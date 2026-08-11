@@ -208,3 +208,30 @@
         font-size: 55px;
     }
 }
+
+
+.logoSection {
+    text-align: center;
+}
+
+.heroLogo {
+    width: 450px;
+    height: auto;
+
+    display: block;
+
+    margin: 0 auto 20px auto;
+
+    object-fit: contain;
+}
+
+.heroBanner {
+    width: 100%;
+    max-width: 500px;
+
+    height: auto;
+
+    display: block;
+
+    margin: 0 auto;
+}

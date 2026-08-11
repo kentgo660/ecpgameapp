@@ -125,3 +125,28 @@
 
     color: white;
 }
+
+.badgeImage {
+    width: 400px;
+    height: 400px;
+
+    display: block;
+    margin: 0 auto;
+
+    object-fit: contain;
+
+    transition: .3s ease;
+}
+
+.badgeCard .badgeImage {
+    filter: none;
+}
+
+.lockedBadge .badgeImage {
+    filter: grayscale(100%);
+    opacity: .5;
+}
+
+.badgeCard:hover .badgeImage {
+    transform: scale(1.08);
+}

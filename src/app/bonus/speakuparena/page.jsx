@@ -143,10 +143,10 @@ export default function SpeakUpArena() {
                     <button
                         className={styles.continueButton}
                         onClick={() =>
-                            router.push("/stages")
+                            router.push("/dashboard")
                         }
                     >
-                        Return To Stages
+                        Return To Dashboard
                     </button>
 
                 </div>
