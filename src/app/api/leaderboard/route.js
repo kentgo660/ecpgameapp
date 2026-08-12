@@ -5,7 +5,7 @@ import { connectDB } from "@/lib/mongodb";
 import ECPINDPRAttendance from "@/models/ECPINDPRAttendance";
 import ECPGameProgress from "@/models/ECPGameProgress";
 
-export async function GET() {
+export async function POST() {
     try {
 
         await connectDB();

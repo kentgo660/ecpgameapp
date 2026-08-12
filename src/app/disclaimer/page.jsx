@@ -16,6 +16,8 @@ export default function DisclaimerPage() {
             "ecpDisclaimerAccepted",
             "true"
         );
+        document.cookie =
+        "ecpDisclaimerAccepted=true; path=/";
 
         router.push("/dashboard");
     };

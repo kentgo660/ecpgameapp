@@ -89,16 +89,6 @@ export default function GameCompleted() {
                         </span>
                     </div>
 
-                    <div className={styles.stat}>
-                        <strong>
-                            6
-                        </strong>
-
-                        <span>
-                            Badges Earned
-                        </span>
-                    </div>
-
                 </div>
 
                 <div className={styles.badges}>
@@ -115,14 +105,6 @@ export default function GameCompleted() {
 
                     <br />
 
-                    🤝 Trust Champion
-
-                    <br />
-
-                    📢 Integrity Champion
-
-                    <br />
-
                     👑 Integrity Cup Champion
 
                 </div>
@@ -135,7 +117,7 @@ export default function GameCompleted() {
                         )
                     }
                 >
-                    🏅 View Leaderboard
+                    Back to Dashboard
                 </button>
 
             </div>

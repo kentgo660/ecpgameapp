@@ -17,6 +17,20 @@ export default function Dashboard() {
         loadDashboard();
     }, []);
 
+    const handleLogout = () => {
+
+        sessionStorage.clear();
+
+        document.cookie =
+            "ecpUser=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+        document.cookie =
+            "ecpDisclaimerAccepted=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+        router.replace("/");
+
+    };
+
     const loadDashboard = async () => {
 
         try {
@@ -460,6 +474,15 @@ export default function Dashboard() {
                             Integrity Cup Finals
                         </div>
 
+
+
+                </div>
+
+                <div className={styles.bonusTracker}>
+
+                    <h3>Bonus Games</h3>
+                    
+                    <div className={styles.stageList}>
                         <div
                             className={`${styles.stageItem}
                             ${
@@ -536,7 +559,9 @@ export default function Dashboard() {
 
                             Speak Up Arena
                         </div>
-
+                    
+                    </div>
+                    
                 </div>
 
             </div>
@@ -563,6 +588,13 @@ export default function Dashboard() {
                     }
                 >
                     🎖 My Badges
+                </button>
+
+                <button
+                    className={styles.logoutButton}
+                    onClick={handleLogout}
+                >
+                    🚪 Logout
                 </button>
 
             </div>

@@ -4,13 +4,14 @@
     padding: 25px;
 
     background: linear-gradient(
-        180deg,
-        #020617,
-        #071d3d,
-        #020617
+        135deg,
+        #ffffff,
+        #ebe4ff,
+        #e1edff,
+        #d9f5f5
     );
 
-    color: white;
+    color: #2b1b49;
 }
 
 .header {
@@ -20,57 +21,63 @@
 
 .header h1 {
     font-size: 42px;
+
+    color: #5009b5;
+
     margin-bottom: 10px;
 }
 
 .header p {
-    color: #cbd5e1;
+    color: #64748b;
 }
 
 .badgeGrid {
-    max-width: 1200px;
+    max-width: 900px;
 
     margin: auto;
 
     display: grid;
 
-    grid-template-columns:
-        repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
 
     gap: 20px;
 }
 
 .badgeCard {
-    background: linear-gradient(
-        135deg,
-        #fbbf24,
-        #f59e0b
-    );
+    background: white;
 
-    color: black;
+    border-radius: 20px;
 
-    border-radius: 25px;
-
-    padding: 25px;
+    padding: 20px;
 
     text-align: center;
 
+    border: 1px solid #ebe4ff;
+
     box-shadow:
-        0 0 25px rgba(251,191,36,.4);
+        0 2px 10px rgba(0,0,0,.05);
+
+    transition: .2s ease;
+}
+
+.badgeCard:hover {
+    transform: translateY(-3px);
+
+    border-color: #44b8f3;
 }
 
 .lockedBadge {
-    background: #1e293b;
+    background: #f8fafc;
 
-    color: #94a3b8;
+    border-radius: 20px;
 
-    border-radius: 25px;
-
-    padding: 25px;
+    padding: 20px;
 
     text-align: center;
 
-    border: 1px solid #334155;
+    border: 1px solid #e5e7eb;
+
+    color: #94a3b8;
 }
 
 .badgeIcon {
@@ -80,38 +87,64 @@
 
 .badgeCard h3,
 .lockedBadge h3 {
+    margin-top: 15px;
     margin-bottom: 10px;
+
+    color: #5009b5;
+
+    font-size: 18px;
 }
 
 .badgeCard p,
 .lockedBadge p {
-    min-height: 50px;
-}
+    min-height: 45px;
 
+    color: #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
 .badgeCard span {
+    color: #00bbba;
+
     font-weight: 700;
 }
 
 .lockedBadge span {
-    color: #64748b;
+    color: #94a3b8;
 }
-
 .backButton {
     display: block;
 
-    margin: 30px auto;
+    margin: 35px auto;
 
     border: none;
 
-    padding: 15px 30px;
+    padding: 14px 24px;
 
-    border-radius: 15px;
+    border-radius: 14px;
 
-    background: #2563eb;
+    background: linear-gradient(
+        135deg,
+        #5009b5,
+        #794cff
+    );
 
     color: white;
 
+    font-weight: 700;
+
     cursor: pointer;
+
+    transition: .2s;
+}
+
+.backButton:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 20px rgba(80,9,181,.2);
 }
 
 .loading {
@@ -121,14 +154,17 @@
     justify-content: center;
     align-items: center;
 
-    background: #020617;
+    background: #f8fafc;
 
-    color: white;
+    color: #5009b5;
+
+    font-size: 22px;
+
+    font-weight: 700;
 }
-
 .badgeImage {
-    width: 400px;
-    height: 400px;
+    width: 150px;
+    height: 150px;
 
     display: block;
     margin: 0 auto;
@@ -149,4 +185,35 @@
 
 .badgeCard:hover .badgeImage {
     transform: scale(1.08);
+}
+
+@media (max-width: 768px) {
+
+    .badgeGrid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 15px;
+    }
+
+    .badgeCard,
+    .lockedBadge {
+        padding: 15px;
+    }
+
+    .badgeImage {
+        width: 90px;
+        height: 90px;
+    }
+
+    .badgeCard h3,
+    .lockedBadge h3 {
+        font-size: 14px;
+    }
+
+    .badgeCard p,
+    .lockedBadge p {
+        font-size: 11px;
+
+        min-height: auto;
+    }
 }

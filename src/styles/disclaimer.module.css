@@ -8,45 +8,54 @@
     padding: 20px;
 
     background: linear-gradient(
-        180deg,
-        #020617,
-        #071d3d
+        135deg,
+        #ffffff 0%,
+        #ebe4ff 30%,
+        #e1edff 70%,
+        #d9f5f5 100%
     );
 }
 
 .card {
     width: 100%;
-    max-width: 850px;
+    max-width: 900px;
 
     background: #ffffff;
 
-    border-radius: 25px;
+    border-radius: 32px;
 
-    padding: 35px;
+    padding: 40px;
+
+    border: 1px solid #ebe4ff;
 
     box-shadow:
-        0 20px 40px rgba(0,0,0,.25);
+        0 20px 60px rgba(80, 9, 181, .12);
 }
 
 .icon {
     text-align: center;
-    font-size: 60px;
 
-    margin-bottom: 15px;
+    font-size: 70px;
+
+    margin-bottom: 20px;
 }
 
 .card h1 {
     text-align: center;
 
-    color: #111827;
+    color: #5009b5;
+
+    font-size: 32px;
 
     margin-bottom: 25px;
 }
 
 .content {
-    color: #374151;
+    color: #2b1b49;
 
-    line-height: 1.8;
+    line-height: 1.9;
+
+    font-size: 15px;
 }
 
 .content ul {
@@ -54,18 +63,40 @@
     padding-left: 20px;
 }
 
+.content li {
+    margin-bottom: 10px;
+}
+
 .checkboxContainer {
     display: flex;
     align-items: flex-start;
 
-    gap: 10px;
+    gap: 12px;
 
-    margin-top: 25px;
+    margin-top: 30px;
+
+    padding: 18px;
+
+    border-radius: 16px;
+
+    background: #f5f5f5;
 }
 
 .checkboxContainer label {
-    color: #111827;
-    font-weight: 500;
+    color: #2b1b49;
+
+    font-weight: 600;
+
+    line-height: 1.6;
+}
+
+.checkboxContainer input[type="checkbox"] {
+    accent-color: #5009b5;
+
+    width: 18px;
+    height: 18px;
+
+    margin-top: 2px;
 }
 
 .proceedButton {
@@ -77,9 +108,13 @@
 
     border: none;
 
-    border-radius: 15px;
+    border-radius: 18px;
 
-    background: #2563eb;
+    background: linear-gradient(
+        135deg,
+        #5009b5,
+        #794cff
+    );
 
     color: white;
 
@@ -87,9 +122,21 @@
     font-weight: 700;
 
     cursor: pointer;
+
+    transition: .25s;
+}
+
+.proceedButton:hover:not(:disabled) {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(80,9,181,.25);
 }
 
 .proceedButton:disabled {
-    background: #9ca3af;
+    background: #d1d5db;
+
+    color: #6b7280;
+
     cursor: not-allowed;
 }

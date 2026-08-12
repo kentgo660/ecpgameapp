@@ -20,7 +20,14 @@ export default function Leaderboard() {
         try {
 
             const response = await fetch(
-                "/api/leaderboard"
+                "/api/leaderboard",
+                {
+                    method: "POST",
+                    headers : {
+                    "Content-Type":
+                        "application/json",
+                    },
+                }
             );
 
             const data =

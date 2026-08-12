@@ -4,13 +4,14 @@
     padding: 25px;
 
     background: linear-gradient(
-        180deg,
-        #020617,
-        #0f172a,
-        #071d3d
+        135deg,
+        #ffffff,
+        #ebe4ff,
+        #e1edff,
+        #d9f5f5
     );
 
-    color: white;
+    color: #2b1b49;
 }
 
 .container {
@@ -22,22 +23,26 @@
 
 .header {
     text-align: center;
+
     margin-bottom: 25px;
 }
 
 .header h1 {
     font-size: 42px;
+
+    color: #5009b5;
+
     margin-bottom: 10px;
-    color: white;
 }
 
 .header h2 {
-    color: #60a5fa;
+    color: #00bbba;
+
     margin-bottom: 10px;
 }
 
 .header p {
-    color: #cbd5e1;
+    color: #64748b;
 }
 
 /* TIMER */
@@ -69,20 +74,16 @@
 /* SCENARIO */
 
 .scenarioCard {
-    background: linear-gradient(
-        135deg,
-        #1e293b,
-        #111827
-    );
+    background: white;
 
-    border-radius: 25px;
+    border-radius: 20px;
 
-    padding: 30px;
+    padding: 25px;
 
-    border: 1px solid #334155;
+    border: 1px solid #ebe4ff;
 
     box-shadow:
-        0 15px 35px rgba(0,0,0,.35);
+        0 2px 10px rgba(0,0,0,.05);
 }
 
 /* CHAT AREA */
@@ -94,33 +95,30 @@
 .managerBubble {
     max-width: 85%;
 
-    background: linear-gradient(
-        135deg,
-        #2563eb,
-        #1d4ed8
-    );
+    background: #5009b5;
 
     color: white;
 
     padding: 16px;
 
-    border-radius: 18px;
+    border-radius: 16px;
 
     margin-bottom: 15px;
 }
+
 
 .associateBubble {
     max-width: 85%;
 
     margin-left: auto;
 
-    background: #334155;
+    background: #e1edff;
 
-    color: white;
+    color: #2b1b49;
 
     padding: 16px;
 
-    border-radius: 18px;
+    border-radius: 16px;
 
     margin-bottom: 15px;
 }
@@ -128,16 +126,16 @@
 /* QUESTION */
 
 .question {
-    margin-top: 30px;
+    margin-top: 25px;
 
-    font-size: 28px;
+    font-size: 24px;
+
     font-weight: 700;
 
-    color: white;
+    color: #5009b5;
 
     text-align: center;
 }
-
 /* OPTIONS */
 
 .optionButton {
@@ -145,37 +143,29 @@
 
     margin-top: 15px;
 
-    border: none;
+    padding: 18px;
 
-    border-radius: 18px;
+    border-radius: 16px;
 
-    padding: 20px;
+    background: white;
 
-    background: linear-gradient(
-        135deg,
-        #1e293b,
-        #0f172a
-    );
+    border: 2px solid #ebe4ff;
 
-    color: white;
+    color: #2b1b49;
 
-    font-size: 17px;
+    font-size: 16px;
+
     font-weight: 600;
 
     cursor: pointer;
 
-    border: 1px solid #334155;
-
-    transition: all .25s ease;
+    transition: .2s;
 }
 
 .optionButton:hover {
-    transform: translateY(-3px);
+    border-color: #44b8f3;
 
-    border-color: #60a5fa;
-
-    box-shadow:
-        0 0 20px rgba(96,165,250,.35);
+    transform: translateY(-2px);
 }
 
 .correctButton {
@@ -207,42 +197,43 @@
 /* RESULT */
 
 .resultCard {
-    background: linear-gradient(
-        135deg,
-        #1e293b,
-        #111827
-    );
+    background: white;
 
-    border-radius: 30px;
+    border-radius: 20px;
 
-    padding: 40px;
+    padding: 35px;
 
     text-align: center;
 
-    border: 2px solid #22c55e;
+    border: 1px solid #ebe4ff;
 }
 
 .success {
-    font-size: 42px;
+    color: #00bbba;
+
+    font-size: 36px;
+
     font-weight: 800;
-    color: #22c55e;
 }
 
 .failure {
-    font-size: 42px;
-    font-weight: 800;
     color: #ef4444;
+
+    font-size: 36px;
+
+    font-weight: 800;
 }
 
 /* SCORE */
 
 .score {
-    margin-top: 25px;
+    margin-top: 20px;
 
-    font-size: 30px;
+    font-size: 28px;
+
     font-weight: 800;
 
-    color: #fbbf24;
+    color: #5009b5;
 }
 
 /* RESULT LIST */
@@ -274,24 +265,23 @@
 
     border: none;
 
-    padding: 18px 30px;
+    padding: 16px 28px;
 
-    border-radius: 18px;
+    border-radius: 16px;
 
     background: linear-gradient(
         135deg,
-        #22c55e,
-        #15803d
+        #5009b5,
+        #794cff
     );
 
     color: white;
 
-    font-size: 16px;
     font-weight: 700;
 
     cursor: pointer;
 
-    transition: .25s;
+    transition: .2s;
 }
 
 .continueButton:hover {
@@ -305,6 +295,10 @@
 
 @media (max-width: 768px) {
 
+    .page {
+        padding: 15px;
+    }
+
     .header h1 {
         font-size: 30px;
     }
@@ -314,7 +308,12 @@
     }
 
     .question {
-        font-size: 22px;
+        font-size: 20px;
+    }
+
+    .video {
+        max-width: 280px;
+        height: 500px;
     }
 
     .managerBubble,
@@ -322,13 +321,8 @@
         max-width: 100%;
     }
 
-    .optionButton {
-        font-size: 15px;
-    }
-
-    .success,
-    .failure {
-        font-size: 30px;
+    .continueButton {
+        width: 100%;
     }
 }
 
@@ -341,25 +335,18 @@
 }
 
 .video {
-  width: 100%;
+    width: 100%;
 
-  max-width: 320px;
+    max-width: 340px;
 
-  height: 650px;
+    height: 600px;
 
-  border: none;
+    border: none;
 
-  border-radius: 24px;
+    border-radius: 20px;
 
-  overflow: hidden;
-
-  box-shadow:
-    0 10px 30px rgba(
-      0,
-      0,
-      0,
-      .15
-    );
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.08);
 }
 
 .videoMessage {

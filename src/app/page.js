@@ -75,6 +75,8 @@ export default function Home() {
                     country
                 })
             );
+            document.cookie =
+                `ecpUser=${domainId}; path=/`;
 
             sessionStorage.removeItem(
                 "ecpDisclaimerAccepted"
@@ -111,6 +113,8 @@ export default function Home() {
                         width={250}
                         height={250}
                         className={styles.heroLogo}
+                        priority
+                        loading="eager"
                 />
 
 
@@ -124,7 +128,7 @@ export default function Home() {
 
                     <input
                         type="text"
-                        placeholder="AI04068"
+                        placeholder="AL12345"
                         value={domainId}
                         className={styles.input}
                         onChange={(e) =>
