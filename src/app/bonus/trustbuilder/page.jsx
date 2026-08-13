@@ -133,10 +133,10 @@ export default function TrustBuilder() {
                     <button
                         className={styles.continueButton}
                         onClick={() =>
-                            router.push("/stages")
+                            router.push("/dashboard")
                         }
                     >
-                        Return To Stages
+                        Return To Dashboard
                     </button>
 
                 </div>

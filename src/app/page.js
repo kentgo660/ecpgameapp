@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "../styles/login.module.css";
+import Image from "next/image";
 
 export default function Home() {
 
@@ -74,6 +75,8 @@ export default function Home() {
                     country
                 })
             );
+            document.cookie =
+                `ecpUser=${domainId}; path=/`;
 
             sessionStorage.removeItem(
                 "ecpDisclaimerAccepted"
@@ -104,23 +107,16 @@ export default function Home() {
 
                 <div className={styles.logoSection}>
 
-                    <div className={styles.logo}>
-                        🏆
-                    </div>
+                <Image
+                        src="/images/integrity-quest-logo.png"
+                        alt="Integrity Quest"
+                        width={250}
+                        height={250}
+                        className={styles.heroLogo}
+                        priority
+                        loading="eager"
+                />
 
-                    <div className={styles.badge}>
-                        ECP WEEK 2026
-                    </div>
-
-                    <h1 className={styles.title}>
-                        Integrity Quest
-                    </h1>
-
-                    <p className={styles.subtitle}>
-                        Embark on a journey through
-                        Ethics, Compliance, Privacy,
-                        Accountability, and Integrity.
-                    </p>
 
                 </div>
 
@@ -132,7 +128,7 @@ export default function Home() {
 
                     <input
                         type="text"
-                        placeholder="AI04068"
+                        placeholder="AL12345"
                         value={domainId}
                         className={styles.input}
                         onChange={(e) =>

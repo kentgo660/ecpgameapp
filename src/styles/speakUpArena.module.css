@@ -1,136 +1,355 @@
 .page {
     min-height: 100vh;
+
     padding: 20px;
+
     background: linear-gradient(
-        180deg,
-        #020617,
-        #071d3d,
-        #020617
+        135deg,
+        #ffffff,
+        #ebe4ff,
+        #e1edff,
+        #d9f5f5
     );
-    color: white;
+
+    color: #2b1b49;
 }
 
 .header {
     max-width: 900px;
+
     margin: auto;
+
     text-align: center;
 }
 
+.header h1 {
+    color: #5009b5;
+
+    font-size: 40px;
+
+    margin-bottom: 10px;
+}
+
+.header p {
+    color: #64748b;
+}
+
+
 .gameBadge {
     display: inline-block;
+
     padding: 8px 20px;
+
     border-radius: 999px;
-    background: #ec4899;
-    color: white;
+
+    background: #ebe4ff;
+
+    color: #5009b5;
+
     font-weight: 700;
+
     margin-bottom: 15px;
 }
 
 .progressBar {
     margin-top: 20px;
+
     height: 12px;
-    background: #1e293b;
+
+    background: #e1edff;
+
     border-radius: 999px;
+
     overflow: hidden;
 }
 
 .progressFill {
     height: 100%;
-    background: #22c55e;
+    background: linear-gradient(
+        90deg,
+        #5009b5,
+        #794cff
+    );
 }
 
 .progressText {
     margin-top: 10px;
-    color: #94a3b8;
+
+    color: #64748b;
 }
 
 .reputationCard {
     max-width: 900px;
+
     margin: 25px auto;
-    background: #1e293b;
-    border-radius: 20px;
+
     padding: 25px;
+
+    background: white;
+
+    border: 1px solid #ebe4ff;
+
+    border-radius: 20px;
+
     text-align: center;
+
+    box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.reputationCard h3 {
+    margin: 0 0 10px;
+
+    color: #5009b5;
+
+    font-size: 18px;
+
+    font-weight: 700;
+}
+
+.reputationCard p {
+    margin-top: 8px;
+
+    color: #64748b;
+
+    font-size: 14px;
 }
 
 .reputationValue {
     font-size: 48px;
-    font-weight: bold;
-    color: #22c55e;
+
+    font-weight: 800;
+
+    color: #00bbba;
+
+    line-height: 1;
 }
+
 
 .questionCard {
     max-width: 900px;
+
     margin: auto;
-    background: #1e293b;
-    border-radius: 24px;
-    padding: 40px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 35px;
+
     text-align: center;
+
+    border: 1px solid #ebe4ff;
+
+    box-shadow:
+        0 3px 12px rgba(0,0,0,.05);
 }
 
 .questionLabel {
-    color: #60a5fa;
+    color: #00bbba;
+
     margin-bottom: 15px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.questionCard h2 {
+    color: #2b1b49;
+
+    font-size: 30px;
+
+    line-height: 1.6;
 }
 
 .optionContainer {
     max-width: 900px;
+
     margin: 25px auto;
+
     display: flex;
     flex-direction: column;
+
     gap: 15px;
 }
 
 .optionButton {
-    padding: 20px;
-    border: none;
-    border-radius: 18px;
-    background: #1e293b;
-    color: white;
-    font-size: 18px;
+    padding: 18px;
+
+    border: 2px solid #ebe4ff;
+
+    border-radius: 16px;
+
+    background: white;
+
+    color: #2b1b49;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
     cursor: pointer;
+
+    transition: .2s ease;
+}
+
+.optionButton:hover {
+    transform: translateY(-2px);
+
+    border-color: #44b8f3;
 }
 
 .correctAnswer {
-    background: #16a34a !important;
+    background: #e8f8f8 !important;
+
+    border: 2px solid #00bbba !important;
+
+    color: #00bbba !important;
 }
 
 .wrongAnswer {
-    background: #dc2626 !important;
+    background: #fef2f2 !important;
+
+    border: 2px solid #ef4444 !important;
+
+    color: #ef4444 !important;
 }
 
 .resultCard {
     max-width: 700px;
+
     margin: 80px auto;
+
     text-align: center;
-    background: #1e293b;
+
+    background: white;
+
     border-radius: 24px;
+
     padding: 40px;
+
+    border: 1px solid #ebe4ff;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.05);
+}
+
+.resultCard h1 {
+    color: #5009b5;
+}
+
+.resultCard h3 {
+    color: #00bbba;
+}
+
+.resultCard p {
+    color: #64748b;
 }
 
 .icon {
     font-size: 70px;
+
+    margin-bottom: 15px;
 }
 
 .scoreCircle {
     width: 150px;
     height: 150px;
+
     margin: 20px auto;
+
     border-radius: 50%;
-    background: #22c55e;
+
+    background: linear-gradient(
+        135deg,
+        #5009b5,
+        #794cff
+    );
+
+    color: white;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     font-size: 48px;
-    font-weight: bold;
+
+    font-weight: 800;
 }
 
 .continueButton {
     margin-top: 20px;
+
     padding: 16px 30px;
+
     border: none;
-    border-radius: 15px;
-    background: #2563eb;
+
+    border-radius: 14px;
+
+    background: linear-gradient(
+        135deg,
+        #5009b5,
+        #794cff
+    );
+
     color: white;
+
+    font-weight: 700;
+
     cursor: pointer;
+
+    transition: .2s ease;
+}
+
+.continueButton:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 20px rgba(
+            80,
+            9,
+            181,
+            .2
+        );
+}
+
+@media (max-width: 768px) {
+
+    .page {
+        padding: 15px;
+    }
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+    .questionCard {
+        padding: 22px;
+    }
+
+    .questionCard h2 {
+        font-size: 22px;
+    }
+
+    .optionButton {
+        font-size: 15px;
+    }
+
+    .reputationValue {
+        font-size: 38px;
+    }
+
+    .scoreCircle {
+        width: 120px;
+        height: 120px;
+
+        font-size: 40px;
+    }
+
+    .continueButton {
+        width: 100%;
+    }
 }

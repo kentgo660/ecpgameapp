@@ -20,7 +20,14 @@ export default function Leaderboard() {
         try {
 
             const response = await fetch(
-                "/api/leaderboard"
+                "/api/leaderboard",
+                {
+                    method: "POST",
+                    headers : {
+                    "Content-Type":
+                        "application/json",
+                    },
+                }
             );
 
             const data =
@@ -68,6 +75,18 @@ export default function Leaderboard() {
                 </p>
 
             </div>
+
+            
+            <button
+                className={styles.backButton}
+                onClick={() =>
+                    router.push(
+                        "/dashboard"
+                    )
+                }
+            >
+                ← Back To Dashboard
+            </button>
 
             <div className={styles.board}>
 
@@ -161,17 +180,6 @@ export default function Leaderboard() {
                 )}
 
             </div>
-
-            <button
-                className={styles.backButton}
-                onClick={() =>
-                    router.push(
-                        "/dashboard"
-                    )
-                }
-            >
-                ← Back To Dashboard
-            </button>
 
         </div>
     );

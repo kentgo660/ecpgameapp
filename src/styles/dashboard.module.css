@@ -1,16 +1,16 @@
 .page {
     min-height: 100vh;
-
     padding: 25px;
 
     background: linear-gradient(
-        180deg,
-        #020617 0%,
-        #071d3d 50%,
-        #020617 100%
+        135deg,
+        #ffffff,
+        #ebe4ff,
+        #e1edff,
+        #d9f5f5
     );
 
-    color: white;
+    color: #2b1b49;
 }
 
 /* HERO */
@@ -24,7 +24,7 @@
 
     background: linear-gradient(
         135deg,
-        #1d4ed8,
+        #ffffff,
         #1e3a8a
     );
 
@@ -51,28 +51,28 @@
 /* WELCOME */
 
 .welcomeCard {
-    background: linear-gradient(
-        135deg,
-        #1e293b,
-        #111827
-    );
-
     padding: 25px;
 
     border-radius: 25px;
 
+    background: white;
+
+    border: 1px solid #ebe4ff;
+
     margin-bottom: 20px;
 
-    border: 1px solid #334155;
+    box-shadow:
+        0 10px 30px rgba(80,9,181,.07);
 }
 
 .welcomeCard h2 {
     margin: 0;
-    color: white;
+
+    color: #5009b5;
 }
 
 .welcomeCard span {
-    color: #94a3b8;
+    color: #2b1b49;
 }
 
 /* STATS */
@@ -91,15 +91,19 @@
 
     border-radius: 25px;
 
-    background: linear-gradient(
-        135deg,
-        #1e293b,
-        #111827
-    );
+    background: white;
 
-    border: 1px solid #334155;
+    border: 1px solid #ebe4ff;
 
     text-align: center;
+}
+
+.statCard h3 {
+    color: #5009b5;
+}
+
+.statCard p {
+    color: #2b1b49;
 }
 
 .statIcon {
@@ -107,51 +111,45 @@
     margin-bottom: 10px;
 }
 
-.statCard h3 {
-    margin: 0;
-    font-size: 32px;
-    color: #22c55e;
-}
-
-.statCard p {
-    margin-top: 5px;
-    color: #94a3b8;
-}
-
 /* PROGRESS */
 
 .progressCard {
-    background: linear-gradient(
-        135deg,
-        #1e293b,
-        #111827
-    );
+    background: white;
 
-    border-radius: 25px;
+    border: 1px solid #ebe4ff;
 
-    padding: 25px;
+    border-radius: 20px;
+
+    padding: 24px;
 
     margin-bottom: 20px;
 
-    border: 1px solid #334155;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .progressCard h3 {
-    margin-top: 0;
-    color: white;
+    margin: 0 0 15px;
+
+    color: #5009b5;
+
+    font-size: 18px;
+
+    font-weight: 700;
 }
 
 .progressBar {
     width: 100%;
-    height: 16px;
 
-    background: #0f172a;
+    height: 14px;
+
+    background: #e9e5ff;
 
     border-radius: 999px;
 
     overflow: hidden;
 
-    margin: 15px 0;
+    margin-bottom: 12px;
 }
 
 .progressFill {
@@ -159,22 +157,19 @@
 
     background: linear-gradient(
         90deg,
-        #22c55e,
-        #16a34a
+        #5009b5,
+        #794cff
     );
 
-    box-shadow:
-        0 0 20px rgba(34,197,94,.7);
+    border-radius: 999px;
+
+    transition: width .4s ease;
 }
 
 /* PROFILE */
 
 .profileCard {
-    background: linear-gradient(
-        135deg,
-        #1e293b,
-        #111827
-    );
+    background: white;
 
     border-radius: 25px;
 
@@ -182,7 +177,44 @@
 
     margin-bottom: 25px;
 
-    border: 1px solid #334155;
+    border: 1px solid #ebe4ff
+}
+
+.championBanner {
+    margin-bottom: 20px;
+
+    padding: 24px;
+
+    border-radius: 20px;
+
+    background: linear-gradient(
+        135deg,
+        #5009b5,
+        #794cff
+    );
+
+    color: white;
+
+    text-align: center;
+
+    box-shadow:
+        0 12px 25px rgba(80,9,181,.2);
+}
+
+.championBanner h3 {
+    margin: 0 0 8px;
+
+    font-size: 22px;
+
+    font-weight: 800;
+}
+
+.championBanner p {
+    margin: 0;
+
+    opacity: .95;
+
+    line-height: 1.6;
 }
 
 .infoRow {
@@ -190,21 +222,23 @@
 
     justify-content: space-between;
 
+    color: #020617;
+
     padding: 14px 0;
 
     border-bottom: 1px solid #334155;
 }
 
-.infoRow:last-child {
-    border-bottom: none;
-}
-
 .infoRow span {
-    color: #94a3b8;
+    color: #64748b;
 }
 
 .infoRow strong {
-    color: white;
+    color: #2b1b49;
+}
+
+.infoRow strong {
+    color: #020617;
 }
 
 /* MAIN BUTTON */
@@ -218,7 +252,7 @@
 
     padding: 22px;
 
-    border-radius: 25px;
+    border-radius: 16px;
 
     background: linear-gradient(
         135deg,
@@ -262,29 +296,25 @@
 
     background: linear-gradient(
         135deg,
-        #1e293b,
-        #111827
+        #5009b5,
+        #794cff
     );
 
     color: white;
 
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 700;
 
     cursor: pointer;
 
     transition: .25s;
-
-    border: 1px solid #334155;
 }
 
 .menuButton:hover {
     transform: translateY(-3px);
 
-    border-color: #60a5fa;
-
     box-shadow:
-        0 0 20px rgba(96,165,250,.3);
+        0 10px 25px rgba(80,9,181,.25);
 }
 
 /* LOADING */
@@ -296,11 +326,12 @@
     justify-content: center;
     align-items: center;
 
-    background: #020617;
+    background: #f8fafc;
 
-    color: white;
+    color: #5009b5;
 
-    font-size: 24px;
+    font-size: 22px;
+
     font-weight: 700;
 }
 
@@ -313,7 +344,9 @@
     }
 
     .statsGrid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+
     }
 
     .menuGrid {
@@ -323,4 +356,128 @@
     .startButton {
         grid-column: span 1;
     }
+}
+
+.heroLogo {
+    width: 420px;
+    height: auto;
+
+    display: block;
+
+    margin: 0 auto;
+}
+
+.stageTracker {
+    margin-bottom: 20px;
+
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 16px;
+
+    border: 1px solid #ebe4ff;
+}
+
+.stageTracker h3 {
+    color: #5009b5;
+}
+
+.stageList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.stageItem {
+    padding: 14px 18px;
+
+    border-radius: 14px;
+
+    background: #f5f5f5;
+
+    color: #2b1b49;
+
+    font-weight: 600;
+
+    border: 1px solid #ebe4ff;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.stageItem:hover {
+    transform: translateY(-2px);
+
+    border-color: #44b8f3;
+}
+
+.completedStage {
+    background: linear-gradient(
+        135deg,
+        #00bbba,
+        #44b8f3
+    );
+
+    color: white;
+
+    border: none;
+}
+
+.lockedStage {
+    opacity: .45;
+
+    cursor: not-allowed;
+
+    filter: grayscale(100%);
+}
+
+.lockedStage:hover {
+    transform: none !important;
+}
+
+.logoutButton {
+    border: none;
+
+    padding: 18px;
+
+    border-radius: 14px;
+
+    background: #ef4444;
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+.logoutButton:hover {
+    background: #dc2626;
+
+    transform: translateY(-2px);
+}
+
+.bonusTracker {
+    margin-top: 20px;
+
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    border: 1px solid #ebe4ff;
+
+    box-shadow:
+        0 3px 12px rgba(0,0,0,.05);
+}
+
+.bonusTracker h3 {
+    margin-bottom: 20px;
+
+    color: #5009b5;
 }
