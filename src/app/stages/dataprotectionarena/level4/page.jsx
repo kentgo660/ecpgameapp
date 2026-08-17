@@ -146,7 +146,7 @@ export default function Level4() {
                         handleAnswer("Forward")
                     }
                 >
-                    📤 Forward to Team Members
+                    Forward to Team Members
                 </button>
 
                 <button
@@ -159,7 +159,7 @@ export default function Level4() {
                         handleAnswer("Ignore")
                     }
                 >
-                    🙈 Ignore the Email
+                    Ignore the Email
                 </button>
 
                 <button
@@ -172,7 +172,7 @@ export default function Level4() {
                         handleAnswer("Delete")
                     }
                 >
-                    🗑 Delete Without Reporting
+                    Delete Without Reporting
                 </button>
 
                 <button
@@ -185,7 +185,7 @@ export default function Level4() {
                         handleAnswer("Report")
                     }
                 >
-                    ✅ Report to Privacy Office and Follow Incident Procedures
+                    Report to Privacy Office and Follow Incident Procedures
                 </button>
 
             </div>
