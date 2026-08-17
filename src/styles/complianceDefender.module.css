@@ -108,6 +108,13 @@
 .hotspot {
     position: absolute;
 
+    transform: translate(-50%, -50%);
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
     cursor: pointer;
 
     z-index: 999;
@@ -115,72 +122,83 @@
     background: transparent;
 
     border: none;
-
-    transition: .2s ease;
 }
 
 .hotspot:hover {
-    background: rgba(68,184,243,.25);
-
-    border: 2px solid #44b8f3;
+    transform:
+        translate(-50%, -50%)
+        scale(1.15);
 }
 
-.hotspotFound {
-    background: rgba(0,187,186,.25);
 
-    border: 3px solid #00bbba;
+.hotspotFound {
+    border: 4px solid #00bbba;
+
+    border-radius: 50%;
+
+    background: rgba(0, 187, 186, 0.20);
+
+    box-shadow:
+        0 0 18px rgba(0, 187, 186, 0.8);
+
+    animation: foundPulse 1.5s infinite;
 }
 
 /* GIFT BOX */
-
 .risk1 {
-    top: 22%;
-    left: 10%;
-
-    width: 12%;
-    height: 15%;
+    left: 18%;
+    top: 26%;
 }
-
-/* HANDSHAKE */
 
 .risk2 {
-    top: 20%;
-    left: 44%;
-
-    width: 14%;
-    height: 14%;
+    left: 47%;
+    top: 24%;
 }
-
-/* RECEIPT */
 
 .risk3 {
-    top: 45%;
-    left: 33%;
-
-    width: 11%;
-    height: 18%;
+    left: 38%;
+    top: 70%;
 }
-
-/* PENDING APPROVAL */
 
 .risk4 {
-    top: 72%;
-    left: 65%;
-
-    width: 12%;
-    height: 11%;
+    left: 69%;
+    top: 76%;
 }
-
-/* CONFIDENTIAL FILE */
 
 .risk5 {
-    top: 73%;
-    left: 81%;
-
-    width: 18%;
-    height: 18%;
+    left: 95%;
+    top: 80%;
 }
 
+.risk5Email {
+    top: 35%;
+    left: 85%;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+}
+
+.risk5Password {
+    top: 53%;
+    left: 97%;
+
+    width: 33px;
+    height: 33px;
+
+    border-radius: 50%;
+}
+
+.risk5Folder {
+    top: 75%;
+    left: 90%;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+}
 /* RISKS FOUND */
 
 .foundPanel {

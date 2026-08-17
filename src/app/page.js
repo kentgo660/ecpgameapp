@@ -126,17 +126,22 @@ export default function Home() {
                         US Domain
                     </label>
 
-                    <input
-                        type="text"
-                        placeholder="AL12345"
-                        value={domainId}
-                        className={styles.input}
-                        onChange={(e) =>
-                            setDomainId(
-                                e.target.value.toUpperCase()
-                            )
-                        }
-                    />
+                <input
+                    type="text"
+                    placeholder="AL12345"
+                    value={domainId}
+                    className={styles.input}
+                    maxLength={7}
+                    onChange={(e) =>
+                        setDomainId(
+                            e.target.value
+                                .replace(/\s/g, "")
+                                .replace(/[^A-Za-z0-9]/g, "")
+                                .toUpperCase()
+                                .slice(0, 7)
+                        )
+                    }
+                />
 
                 </div>
 

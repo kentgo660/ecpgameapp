@@ -167,20 +167,56 @@ export default function ComplianceDefender() {
 
                 {/* Risk 5 Confidential Data */}
 
-                <div
-                    className={`
-                        ${styles.hotspot}
-                        ${styles.risk5}
-                        ${
-                            foundRisks.includes(5)
-                                ? styles.hotspotFound
-                                : ""
+                    {/* Risk 5 - Email */}
+
+                    <div
+                        className={`
+                            ${styles.hotspot}
+                            ${styles.risk5Email}
+                            ${
+                                foundRisks.includes(5)
+                                    ? styles.hotspotFound
+                                    : ""
+                            }
+                        `}
+                        onClick={() =>
+                            handleRiskClick(5)
                         }
-                    `}
-                    onClick={() =>
-                        handleRiskClick(5)
-                    }
-                />
+                    />
+
+                    {/* Risk 5 - Password */}
+
+                    <div
+                        className={`
+                            ${styles.hotspot}
+                            ${styles.risk5Password}
+                            ${
+                                foundRisks.includes(5)
+                                    ? styles.hotspotFound
+                                    : ""
+                            }
+                        `}
+                        onClick={() =>
+                            handleRiskClick(5)
+                        }
+                    />
+
+                    {/* Risk 5 - Confidential Folder */}
+
+                    <div
+                        className={`
+                            ${styles.hotspot}
+                            ${styles.risk5Folder}
+                            ${
+                                foundRisks.includes(5)
+                                    ? styles.hotspotFound
+                                    : ""
+                            }
+                        `}
+                        onClick={() =>
+                            handleRiskClick(5)
+                        }
+                    />
 
             </div>
 
